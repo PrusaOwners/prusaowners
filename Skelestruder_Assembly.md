@@ -6,42 +6,42 @@ HW (vitamins)
 
 What parts you need to acquire, including some you can harvest from spares or the stock extruder.
 
-| Required                         |
-|----------------------------------|
-| Item                             |
-| Filament Sensor                  |
-| Bowden                           |
-| E3d Extruder assembler           |
-| bondtech drive                   |
-| bondtech idler w/ bearings       |
-| BondTech axle                    |
-| PTFE x 13mm                      |
-| nylon washer                     |
-| spring                           |
-| M3x10mm                          |
-| M3x30mm                          |
-| M3x40mm                          |
-| M3x18mm                          |
-| M3 sq nut                        |
-| M3 hex nut                       |
-| M3x25mm                          |
-| zip ties                         |
-| M3 Nylock nut                    |
-| M3x20mm                          |
-| M3x6mm (or 4 or 8)               |
-| M3x12mm                          |
-| 105zz bearings                   |
-| 140x6mm GT2 loop belt (70 teeth) |
-| 5x45mm Shaft Longer is ok        |
-| Short body Nema17 stepper motor  |
-| **Optional, but recommended**    |
-| New PTFE tubing                  |
-| New GT2 belt to replace X belt.  |
-| Cleaning brush wheel             |
-| **Optional**                     |
-| 14T pulley                       |
-| 20mm unmount wheel brush         |
-| One 673 (MR63) bearing           |
+| Required                         | For Stock | For Skelestruder | Notes |
+|----------------------------------|-----------|------------------|-------|
+| Filament sensor                  | 1         | 1
+| Bowden                           |           |
+| E3d extruder assembler           | 1         | 1
+| Bondtech drive                   |        |
+| Bondtech idler with bearings     |        |
+| BondTech axle                    |        |
+| PTFE x 13mm                      |        |
+| Nylon washer                     |        |
+| Spring                           |        |
+| M3x10mm                          |        |
+| M3x30mm                          |        |
+| M3x40mm                          |        |
+| M3x18mm                          |        |
+| M3 sq nut                        |        |
+| M3 hex nut                       |        |
+| M3x25mm                          |        |
+| Zip ties                         |        |
+| M3 Nylock nut                    |        |
+| M3x20mm                          |        |
+| M3x6mm (or 4 or 8)               |        |
+| M3x12mm                          |        |
+| 105zz bearings                   |        |
+| 140x6mm GT2 loop belt (70 teeth) |        |
+| 5x45mm Shaft Longer is ok        | 0      | 1             | Available pre-cut with current flat from Misumi |
+|                                 |       |              | UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
+| Short body Nema17 stepper motor  |        |
+| **Optional, but recommended**    |        |
+| New PTFE tubing                  |        |
+| New GT2 belt to replace X belt.  |        |
+| Cleaning brush wheel             |        |
+| **Optional**                     |        |
+| 14T pulley                       |        |
+| 20mm unmount wheel brush         |        |
+| 1x 673 (MR63) bearing            |        |
 
 Note: Source links for purchase in table above are for reference only; other suppliers are available depending on your level of impatience :-)
 
