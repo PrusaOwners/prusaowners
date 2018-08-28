@@ -34,11 +34,15 @@ What parts you need to acquire, including some you can harvest from spares or th
 | 140x6mm GT2 loop belt (70 teeth) |
 | 5x45mm Shaft Longer is ok        |
 | Short body Nema17 stepper motor  |
+
 | Optional, but recommended        |
+|----------------------------------|
 | New PTFE tubing                  |
 | New GT2 belt to replace X belt.  |
 | Cleaning brush wheel             |
+
 | Optional                         |
+|----------------------------------|
 | 14T pulley                       |
 | 20mm unmount wheel brush         |
 | One 673 (MR63) bearing           |
