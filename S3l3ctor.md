@@ -1,6 +1,24 @@
+Welcome to the S3l3ctor wiki! This is the introduction page, where I talk about what S3l3ctor is.
+
+S3l3ctor is:
+* A 100% open source filament selector
+* Costs under $120
+* Can use up to 6 colors at once
+* Lets you keep your extruder
+* Can work on any printer with a USB port or spare pins
+* Being developed by Matt when he's not doing homework
+* Is undergoing closed Alpha testing right now
+
+S3l3ctor is **not**:
+* Done yet
+* Accepting donations not made in 4043d
+* A MMU2 clone
+* Requires changing extruder hardware
+* For the faint of heart (yet!)
+
 S3l3ctor is an open source filament selector under development. Development is being led by ThatMattGuy (Matt) in collaboration with other community members.
 
-At this point the project is undergoing closed alpha testing and will have an open beta starting soon<sup>TM</sup>
+At this point the project is undergoing closed alpha testing and will have an open beta starting soon<sup>TM</sup>. I mean you print the parts, but it's likely not a good idea yet.
 
 Link the the [Github STLs](https://github.com/PrusaOwners/s3l3ctor) (Please please please don't click unless you know what you are doing)
 
