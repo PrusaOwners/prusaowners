@@ -27,35 +27,35 @@ This is a wiki for the Original Prusa printers created by Josef Prusa and any pr
 ### Downloads
 - [Prusa Official Downloads Page](https://www.prusa3d.com/drivers/)
 ### Firmware
-- [Klipper](https://github.com/PrusaOwners/prusaowners/blob/master/Klipper.md)
+- [Klipper](Klipper.md)
 - [Klipper MK3 Firmware G-Code Reference]()
 - [Prusa Official Firmware](https://github.com/prusa3d/Prusa-Firmware)
 - [Prusa Official MK3 Firmware G-Code Reference]()
 ### Slicing Software
-- [Slicer Profiles](https://github.com/PrusaOwners/prusaowners/blob/master/Slicer_Profiles.md)
-- [Test Prints](https://github.com/PrusaOwners/prusaowners/blob/master/Test_Prints.md)
+- [Slicer Profiles](Slicer_Profiles.md)
+- [Test Prints](Test_Prints.md)
 ### PrusaOwners Repositories
 - [Main Github](https://github.com/PrusaOwners/prusaowners/)
 ### Community To Do List
-- [Community To Do List for i3 MK3](https://github.com/PrusaOwners/prusaowners/blob/master/Community_To_Do_List_for_i3_MK3.md)
+- [Community To Do List for i3 MK3](Community_To_Do_List_for_i3_MK3.md)
 ## How To Guides
 ### How To Guides
-- [Cold Pull on MK3]()
+- [Cold Pull on MK3](Cold_Pull_on_MK3.md)
 - [gregsaun's maker cheatsheet](https://github.com/gregsaun/maker_cheatsheet)
-- [Manual print based PINDA temperature calibration](https://github.com/PrusaOwners/prusaowners/blob/master/Manual_print_based_PINDA_temperature_calibration.md)
+- [Manual print based PINDA temperature calibration](Manual_print_based_PINDA_temperature_calibration.md)
 ### Mods and Improvements
-- [Bed Leveling with Wave Springs]()
-- [Bed Leveling without Wave Springs](https://github.com/PrusaOwners/prusaowners/blob/master/Bed_Leveling_without_Wave_Springs.md)
+- [Bed Leveling with Wave Springs](Bed_Leveling_with_Wave_Springs.md)
+- [Bed Leveling without Wave Springs](Bed_Leveling_without_Wave_Springs.md)
 - [Improved Rigid Feet](https://www.thingiverse.com/thing:2802540)
-- [Improved Z-axis mounts by jltx](https://github.com/PrusaOwners/prusaowners/blob/master/Improved_Z-axis_mounts_by_jltx.md)
-- [Metal Mk3 parts](https://github.com/PrusaOwners/prusaowners/blob/master/Metal_Mk3_parts.md)
-- [Multi Material Upgrades]()
+- [Improved Z-axis mounts by jltx](Improved_Z-axis_mounts_by_jltx.md)
+- [Metal Mk3 parts](Metal_Mk3_parts.md)
+- [S3l3ctor](S3l3ctor.md)
 - [Reverse Bowden](https://www.thingiverse.com/thing:2783385)
-- [Skelestruder by jltx](https://github.com/PrusaOwners/prusaowners/blob/master/Skelestruder_by_jltx.md)
-- [How to make prints better on the mk3](https://github.com/PrusaOwners/prusaowners/blob/master/How_to_make_prints_better_on_the_mk3.md)
-- [PLA bearings](https://github.com/PrusaOwners/prusaowners/blob/master/PLA_bearings.md)
-- [Einsy fan voltage mod](https://github.com/PrusaOwners/prusaowners/blob/master/Einsy_fan_voltage_mod.md)
-- [Moons stepper motors]()
+- [Skelestruder by jltx](Skelestruder_by_jltx.md)
+- [How to make prints better on the mk3](How_to_make_prints_better_on_the_mk3.md)
+- [PLA bearings](PLA_bearings.md)
+- [Einsy fan voltage mod](Einsy_fan_voltage_mod.md)
+- [Moons stepper motors](Moons_stepper_motors.md)
 ### Octoprint
 - [Prusa Guide: Octoprint for i3 MK3 using Pi Zero W to Einsy Headers](https://manual.prusa3d.com/c/Octoprint_for_Original_Prusa_i3_MK3)
 - [PrusaMeshMap Plugin for Octoprint](https://github.com/PrusaOwners/OctoPrint-PrusaMeshMap)
