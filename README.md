@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/PrusaOwners/prusaowners.svg?branch=master)](https://travis-ci.org/PrusaOwners/prusaowners)
 # PrusaOwners
 This is a wiki for the Original Prusa printers created by Josef Prusa and any projects related to these printers.
 ## Printer Information
