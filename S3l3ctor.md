@@ -2,6 +2,8 @@ S3l3ctor is an open source filament selector under development. Development is b
 
 At this point the project is undergoing closed alpha testing and will have an open beta starting soon<sup>TM</sup>
 
+Link the the [Github STLs](https://github.com/PrusaOwners/s3l3ctor) (Please please please don't click unless you know what you are doing)
+
 | Printed Parts                            |
 |------------------------------------------|
 | STL Name                                 |
@@ -19,14 +21,15 @@ At this point the project is undergoing closed alpha testing and will have an op
 | For Skelestruder:                        |
 | PC4-m10_SKELESTRUDER_B1.stl            |
 
-Text
+Hardware needed:
 
-| Hardware:                                                                                                                                                                                                                                                                                                             |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Item                                                                                                                                                                                                                                                                                                                  |
-| Bolts (how many? What size?)                                                                                                                                                                                                                                                                                          |
-||
-||
+| Item | Quantity | Example link |                           
+--- | --- | ---
+| Bolts | (how many? What size?) | Soon^tm |                                                                                                  
+
+
+
+
 | Square nuts                                                                                                                                                                                                                                                                                                           |
 | 608 bearings                                                                                                                                                                                                                                                                                                          |
 | <https://www.ebay.com/itm/8pcs-625-2Z-625-ZZ-C3-Double-Metal-Shielded-Ball-Bearing-5x16x-5mm-US-Stock-M496/401542781331?hash=item5d7dd09993%3Ag%3Akq0AAOSwZrhacTfp&_sacat=0&_nkw=625+bearing&_from=R40&rt=nc&_trksid=p2047675.m570.l1313.TR0.TRC0.A0.H0.X625+bearin.TRS1>                                             |
