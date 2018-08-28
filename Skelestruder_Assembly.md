@@ -6,11 +6,12 @@ HW (vitamins)
 
 What parts you need to acquire, including some you can harvest from spares or the stock extruder.
 
-| Required                         | For Stock | For Skelestruder | Notes |
-|----------------------------------|-----------|------------------|-------|
-| Filament sensor                  | 1         | 1
+| Parts                             | For Stock | For Skelestruder  | Notes |
+|-----------------------------------|-----------|-------------------|-------|
+| **Required**                      |           |                   |       |
+| Filament sensor                  |          | 
 | Bowden                           |           |
-| E3d extruder assembler           | 1         | 1
+| E3d extruder assembler           |          | 
 | Bondtech drive                   |        |
 | Bondtech idler with bearings     |        |
 | BondTech axle                    |        |
@@ -31,18 +32,18 @@ What parts you need to acquire, including some you can harvest from spares or th
 | M3x12mm                          |        |
 | 105zz bearings                   |        |
 | 140x6mm GT2 loop belt (70 teeth) |        |
-| 5x45mm Shaft                     | 0      | 1             | Longer is ok  <br> Available pre-cut with current flat from Misumi  <br> UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
-| Short body Nema17 stepper motor  |        |
-| **Optional, but recommended**    |        |
+| 5x45mm Shaft                     | 0      | 1                     | Longer is ok  <br> Available pre-cut with current flat from Misumi  <br> UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
+| **Optional, but recommended**    |        |   |   |
+| Short body Nema17 stepper motor  | 0      | 1                     | Small motor helps reduce weight in the extruder. <br> The stock motor also works with the current setup. |
 | New PTFE tubing                  |        |
 | New GT2 belt to replace X belt.  |        |
 | Cleaning brush wheel             |        |
 | **Optional**                     |        |
 | 14T pulley                       |        |
 | 20mm unmount wheel brush         |        |
-| 1x 673 (MR63) bearing            |        |
+| 673 (MR63) bearing               | 0      | 1                     |   |
 
-Note: Source links for purchase in table above are for reference only; other suppliers are available depending on your level of impatience :-)
+Note: Source links for purchase in table above are for reference only. Other suppliers are available depending on your level of impatience :-)
 
 Printed Parts
 -------------
