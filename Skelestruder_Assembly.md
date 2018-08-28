@@ -18,18 +18,18 @@ What parts you need to acquire, including some you can harvest from spares or th
 | PTFE x 13mm                      |        |
 | Nylon washer                     |        |
 | Spring                           |        |
-| M3x10mm                          |        |
-| M3x30mm                          |        |
-| M3x40mm                          |        |
-| M3x18mm                          |        |
+| M3x10mm screw                          |        |
+| M3x30mm screw                          |        |
+| M3x40mm screw                          |        |
+| M3x18mm screw                          |        |
 | M3 sq nut                        |        |
 | M3 hex nut                       |        |
-| M3x25mm                          |        |
+| M3x25mm screw                         |        |
 | Zip ties                         |        |
 | M3 Nylock nut                    |        |
-| M3x20mm                          |        |
-| M3x6mm (or 4 or 8)               |        |
-| M3x12mm                          |        |
+| M3x20mm screw                          |        |
+| M3x6mm screw                       |        | (or 4 or 8) 
+| M3x12mm screw                         |        |
 | 105zz bearings                   |        |
 | 140x6mm GT2 loop belt (70 teeth) |        |
 | 5x45mm Shaft                     | 0      | 1                     | Longer is ok  <br> Available pre-cut with current flat from Misumi  <br> UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
