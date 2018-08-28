@@ -31,8 +31,7 @@ What parts you need to acquire, including some you can harvest from spares or th
 | M3x12mm                          |        |
 | 105zz bearings                   |        |
 | 140x6mm GT2 loop belt (70 teeth) |        |
-| 5x45mm Shaft Longer is ok        | 0      | 1             | Available pre-cut with current flat from Misumi |
-|                                 |       |              | UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
+| 5x45mm Shaft                     | 0      | 1             | Longer is ok  <br> Available pre-cut with current flat from Misumi  <br> UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
 | Short body Nema17 stepper motor  |        |
 | **Optional, but recommended**    |        |
 | New PTFE tubing                  |        |
