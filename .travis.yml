@@ -1,5 +1,5 @@
 script:
-- |
+- |-
   git config user.name "arksine"
   git config user.email "arksine.code@gmail.com"
   git remote remove origin
@@ -10,3 +10,6 @@ script:
   git merge upstream/master --no-edit
   git push origin HEAD:master > /dev/null 2>&1
   git push upstream HEAD:master > /dev/null 2>&1
+env:
+  matrix:
+    secure: W5Q/sbO75Mm/YbY/oriKQGJn2+09+uuNuscZQLqicsJ/mVZlseD0F98SfDDTIgOGjxPYilZfsC14v84Awhu5aqDsKQVPpUeSB2jIEXwEej1YpzuFsp89LKHkiebF+HR5VsOnG7zC1qHmZSUBRbB38f0W+GR6/BbgMIbjoQwG6Wz0RzPps0gaskvWlXKCu4xz9ts6QHwRV12eanmOkWnNSB234r9iVbJyPt/8W8ds7pDUX3Ibz+vmgqq9JRjbX3lwKZNgockVAKw2hGrJ7UxDEbMqQByTRZ2toYWyzBpJPL2zdybZYy+jIsfHuXUFHUIhEiIZGe2LS2Weh81NHtqObZN1kmHijQOSRyH3TS237vDfulgnXnDFSoHONd9kWGRch51pkEjQ3PD+sx8ujemzrDe4zs2V+r0ZqFURjnltm/Tyd6vxVU3tvgiDgKdex2HLkmNupIbhiE8PHW3NOIE9kplDOdGjNkfA0TgiihkJh5fIfrdzFSTNzSJLUBdX2DYxG7v5r1EXRHsyk1ZdI4sDPEGfrVdK5Iyk98aRxF32jJLKe9IvNSlQcnm9dD1RyrqGSRwWvpBuujSor9/9D9Yc0BjEoGZ6MHnThHm0D8LJFBIsYXEwb5chKfsgRrnOoz0VMbZgmCNLxinFSeEnDnZmKdT7ynUDlSeqXnCYryENYSw=
