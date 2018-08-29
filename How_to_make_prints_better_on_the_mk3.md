@@ -15,14 +15,14 @@ This is mandatory on any machine. Your bearings need to have smooth linear motio
 
 I suggest that you buy some high quality bearings. Unfortunately these may be pretty expensive and there would be no guarantee that they fit the rods supplied from Prusa Research without loose tolerance or 'play'.
 
-A lower cost alternative is to make your own PLA bearings, which I find superior, but they are a lot of work to get right. I've put the instructions on making them in another article. [PLA bearings](PLA_bearings "wikilink")
+A lower cost alternative is to make your own PLA bearings, which I find superior, but they are a lot of work to get right. I've put the instructions on making them in another article. [PLA bearings](PLA_bearings.md "wikilink")
 
 Loose rods on Z axis
 --------------------
 
 It is important that your Z axis rods are not loose. You should check the Z axis printed parts, top and bottom, to ensure that they sit snugly and cannot be moved My stock z-tops allowed at least 0.5mm of play with the rods, which again, is highly undesirable. I suggest you to reprint the Z-tops if you experience something similar.
 
-You can find improved Z axis printed parts here: [Improved_Z-axis_mounts_by_jltx](Improved_Z-axis_mounts_by_jltx "wikilink"). I've printed the Z-tops, to remove the play, and the Z-bottom (motor holder) because I was disassembling the printer very often and these made that process much easier. They are also more rigid, which is good.
+You can find improved Z axis printed parts here: [Improved_Z-axis_mounts_by_jltx](Improved_Z-axis_mounts_by_jltx.md "wikilink"). I've printed the Z-tops, to remove the play, and the Z-bottom (motor holder) because I was disassembling the printer very often and these made that process much easier. They are also more rigid, which is good.
 
 Badly installed Z nuts
 ----------------------
@@ -176,5 +176,3 @@ Nozzle polishing
 ----------------
 
 This needs more testing
-
-<Category:Klipper>

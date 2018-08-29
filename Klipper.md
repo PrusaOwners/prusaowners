@@ -1,5 +1,3 @@
-__TOC__
-
 About Klipper
 -------------
 
@@ -389,5 +387,3 @@ Currently the gcode doesn't actually calibrate the sensor. It gathers temperatur
 When calibration is complete (or times out) data will be dumped to ~/PindaTemps.json. It is useful to calibrate at the default position (center standoff) and one other position such as X50 Y50, up to a target temp of 55 to 60C. To reach these probe temperatures it is recommended to heat the extruder to a minimum 235C and the Bed to 90C.
 
 If you are interested in collecting data, please visit the \#mk3-klipper channel on the Prusa3d-Users discord server.
-
-<Category:Klipper>

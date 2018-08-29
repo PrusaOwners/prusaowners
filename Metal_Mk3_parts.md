@@ -17,5 +17,3 @@ However links to these parts are below: -
 -&gt; I would not recommend those Z tops with bearings. the lead screw should not be constrained, only the smooth rod.
 
 Note that for other brits out there, it's ok ... Aluminum is just how those American folks mis-spell Aluminium :)
-
-[Category: Hardware](Category:_Hardware "wikilink")
