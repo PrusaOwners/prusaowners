@@ -22,37 +22,19 @@ Electrical Components
 
 | Part Name       | Used In / Description | Specification                       | Manufacture Part Number | Source / Source Part Number                      |
 |-----------------|-----------------------|-------------------------------------|-------------------------|--------------------------------------------------|
-| Noctua fan      | Hotend fan            | -   5 V
-   -   0.05 A
-   -   4500 RPM
-   -   Size: 40x40x10 mm
-   -   Mounting hole spacing: 32x32 mm
-   -   Airflow: 8,2 m³/h (4.83 CFM)
-   -   Static Pressure: 1,78 mm H₂O     | Noctua NF-A4x10 5V      | <https://noctua.at/en/products/fan/nf-a4x10-flx> |
-| 5015 Blower fan | Nozzle fan            | -   5 V
-   -   0.3 A
-   -   4500 RPM
-   -   Size: 50x50x15 mm
-   -   Mounting hole spacing: 38x43 mm
-   -   Airflow: 3.8 CFM                 | ?                       | ?                                                |
+| Noctua fan      | Hotend fan            | -   5 V<br />-   0.05 A<br />-   4500 RPM<br />-   Size: 40x40x10 mm<br />-   Mounting hole spacing: 32x32 mm<br />-   Airflow: 8,2 m³/h (4.83 CFM)<br />-   Static Pressure: 1,78 mm H₂O     | Noctua NF-A4x10 5V      | <https://noctua.at/en/products/fan/nf-a4x10-flx> |
+| 5015 Blower fan | Nozzle fan            | -   5 V<br />-   0.3 A<br />-   4500 RPM<br />-   Size: 50x50x15 mm<br />-   Mounting hole spacing: 38x43 mm<br />-   Airflow: 3.8 CFM                 | ?                       | ?                                                |
 
 ### Heated Bed
 
 | Part Name | Used In / Description       | Specification                      | Manufacture Part Number | Source / Source Part Number |
 |-----------|-----------------------------|------------------------------------|-------------------------|-----------------------------|
-| Magnets   | Magnets for MK52 heated bed | -   Neodymium Material Type: N35UH
-   -   Size: 20x6x2.3 mm
-   -   Hole depth in MK52: 2.5-2.7 mm
-   -   Maximum Operating Temp: 180°C   | ?                       | ?                           |
+| Magnets   | Magnets for MK52 heated bed | -   Neodymium Material Type: N35UH<br />-   Size: 20x6x2.3 mm<br />-   Hole depth in MK52: 2.5-2.7 mm<br />-   Maximum Operating Temp: 180°C   | ?                       | ?                           |
 
 ### Cable Management
 
 | Part Name                 | Used In / Description       | Specification                                       | Manufacture Part Number | Source / Source Part Number                                                                                                                                                                   |
 |---------------------------|-----------------------------|-----------------------------------------------------|-------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Wrap Braided Cable Sleeve | MK52 Heated bed             | -   Material: Nylon
-   -   Diameter: 5mm
-   -   Length: ?                                        | ?                       | <https://www.aliexpress.com/item/Black-Wrap-Braided-Cable-Sleeve-5mm-3m-General-Wire-Pipe-Hose-Indoor-Wiring-Protection-Flexible-Nylon/32839976444.html?spm=a2g0s.9042311.0.0.67ec4c4dzqdKOg> |
-| 3mm nylon cable           | Support for extruder cables | -   Material: Nylon
-   -   Diameter: 3mm (not 2.85mm like nylon filament!)
-   -   Length: ?                                        | ?                       | ?                                                                                                                                                                                             |
+| Wrap Braided Cable Sleeve | MK52 Heated bed             | -   Material: Nylon<br />-   Diameter: 5mm<br />-   Length: ?                                        | ?                       | <https://www.aliexpress.com/item/Black-Wrap-Braided-Cable-Sleeve-5mm-3m-General-Wire-Pipe-Hose-Indoor-Wiring-Protection-Flexible-Nylon/32839976444.html?spm=a2g0s.9042311.0.0.67ec4c4dzqdKOg> |
+| 3mm nylon cable           | Support for extruder cables | -   Material: Nylon<br />-   Diameter: 3mm (not 2.85mm like nylon filament!)<br />-   Length: ?                                        | ?                       | ?                                                                                                                                                                                             |
 
