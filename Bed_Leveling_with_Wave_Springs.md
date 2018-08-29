@@ -82,31 +82,35 @@ The Octoprint plug-in comes with some default g-code to perform the bed measurem
 
 **For those running Prusa firmware 3.3.0 or higher**, you can use the script below. This script first waits for the PINDA to cool down to 35C or lower, than heats the bed up and waits for it and the PINDA probe to reach a desired temperature, then runs the mesh bed measurement and outputs the results.
 
-`G28 W ; home all without mesh bed level`
-`G0 X50 Y50 Z70 F1500 ; Raise PINDA in case cooling is needed`
-`M860 S35 ; Wait for PINDA <= 35C`
-`M190 S60; set and wait for bed temp`
-`M104 S170  ; set nozzle temp`
-`G0 X50 Y50 Z0.15 F1500 ; this is a good PINDA heating position`
-`M860 S35 ; wait until PINDA is >= 35C`
-`G80 ; mesh bed leveling`
-`G81 ; check mesh leveling results`
-`G4 ; wait`
-`M104 S0 ; turn off temperature`
-`M140 S0 ; turn off heatbed`
-`G0 X50 Y50 Z70 F1500 ; Raise PINDA back for next iteration`
+```G-code
+G28 W ; home all without mesh bed level
+G0 X50 Y50 Z70 F1500 ; Raise PINDA in case cooling is needed
+M860 S35 ; Wait for PINDA <= 35C
+M190 S60; set and wait for bed temp
+M104 S170  ; set nozzle temp
+G0 X50 Y50 Z0.15 F1500 ; this is a good PINDA heating position
+M860 S35 ; wait until PINDA is >= 35C
+G80 ; mesh bed leveling
+G81 ; check mesh leveling results
+G4 ; wait
+M104 S0 ; turn off temperature
+M140 S0 ; turn off heatbed
+G0 X50 Y50 Z70 F1500 ; Raise PINDA back for next iteration
+```
 
 **For those running Prusa firmware earlier than 3.3.0**, you can use the script below. This script is identical to the one above, except that it does not first wait for the PINDA probe to cool down (because the firmware does not support this feature).
 
-`G28 W ; home all without mesh bed level`
-`G0 X50 Y50 Z70 F1500 ; Raise PINDA in case cooling is needed`
-`M190 S60; set and wait for bed temp`
-`M104 S170  ; set nozzle temp`
-`G0 X50 Y50 Z0.15 F1500 ; this is a good PINDA heating position`
-`M860 S35 ; wait until PINDA is >= 35C`
-`G80 ; mesh bed leveling`
-`G81 ; check mesh leveling results`
-`G4 ; wait`
-`M104 S0 ; turn off temperature`
-`M140 S0 ; turn off heatbed`
-`G0 X50 Y50 Z70 F1500 ; Raise PINDA back for next iteration`
+```G-code
+G28 W ; home all without mesh bed level
+G0 X50 Y50 Z70 F1500 ; Raise PINDA in case cooling is needed
+M190 S60; set and wait for bed temp
+M104 S170  ; set nozzle temp
+G0 X50 Y50 Z0.15 F1500 ; this is a good PINDA heating position
+M860 S35 ; wait until PINDA is >= 35C
+G80 ; mesh bed leveling
+G81 ; check mesh leveling results
+G4 ; wait
+M104 S0 ; turn off temperature
+M140 S0 ; turn off heatbed
+G0 X50 Y50 Z70 F1500 ; Raise PINDA back for next iteration
+```
