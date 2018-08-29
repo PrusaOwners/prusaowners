@@ -423,7 +423,7 @@ Double check all screws are snug. Make sure all moving parts move freely
 
 ### Cable management (one way, but do what you will):
 
--   Pinda: route wire up between top belt and top bearing.
+-  Pinda: route wire up between top belt and top bearing.
 
 Rotate Zip head down to lock into place (see pic).
 
@@ -437,14 +437,14 @@ Optional: Insert M3x?? Screw into center hole on carriage to guide wires around 
 
 Tail:
 
-`   Pull along tail and zip tie down`
-`   Also zip up heater cables underneath tail from below`
-`   Can use screw access hole in tail to insert Nylon filament if using`
+- Pull along tail and zip tie down
+- Also zip up heater cables underneath tail from below
+- Can use screw access hole in tail to insert Nylon filament if using
 
 Fin:
 
-`   run along right side and zip through main center hole`
-`   snap one wire into each holder.  `
+- Run along right side and zip through main center hole
+- Snap one wire into each holder
 
 Add spiral or sleeve
 
@@ -497,12 +497,12 @@ Change motor current, depending on your motor, if it gets too hot using stock se
 
 INFO: M910 - Reset and initialize the TMC2130 chips.
 
-`      Most setting changes won't go into effect until this code is sent.`
+- Most setting changes won't go into effect until this code is sent.
 
 M911 - Holding current M912 - Running current
 
-`      Set the above TMC2130 currents.  Must be given in current scalar values (0 to 63).  `
-`      Example:  M911 X14 Y20 Z30 E36`
+- Set the above TMC2130 currents.  Must be given in current scalar values (0 to 63).
+- Example:  M911 X14 Y20 Z30 E36
 
 M913 - Print the currently set TMC2130 current values
 
@@ -536,23 +536,24 @@ If it doesn't move at all, check that the bearing spins freely. Also check that 
 
 The laser is a small dot above the square sensor. If it is blocked, it cannot see the bearing.
 
-8&lt;==================== this patch is only for indirect filament sensor -&gt; changes sign of Y motion
+### Editing Needed Below?
 
-`<code>diff --git a/Firmware/pat9125.cpp b/Firmware/pat9125.cpp`
-`old mode 100755`
-`new mode 100644`
-`index 4894c85..5497467`
-`--- a/Firmware/pat9125.cpp`
-`+++ b/Firmware/pat9125.cpp`
-`@@ -180,7 +180,7 @@ int pat9125_update_y()`
-`                        if (pat9125_PID1 == 0xff) return 0;`
-`                        int iDY = ucYL | ((ucXYH << 8) & 0xf00);`
-`                        if (iDY & 0x800) iDY -= 4096;`
-`-                       pat9125_y -= iDY; //negative number, because direction switching does not work`
-`+                       pat9125_y += iDY; //negative number, because direction switching does not work`
-`                }`
-`                return 1;`
-`        }</code>`
-` `
+This patch is only for indirect filament sensor, changes sign of Y motion
 
-8&lt;====================
+```
+diff --git a/Firmware/pat9125.cpp b/Firmware/pat9125.cpp
+old mode 100755
+new mode 100644
+index 4894c85..5497467
+--- a/Firmware/pat9125.cpp
++++ b/Firmware/pat9125.cpp
+@@ -180,7 +180,7 @@ int pat9125_update_y()
+                        if (pat9125_PID1 == 0xff) return 0;
+                        int iDY = ucYL | ((ucXYH << 8) & 0xf00);
+                        if (iDY & 0x800) iDY -= 4096;
+-                       pat9125_y -= iDY; //negative number, because direction switching does not work
++                       pat9125_y += iDY; //negative number, because direction switching does not work
+                }
+                return 1;
+        }
+```

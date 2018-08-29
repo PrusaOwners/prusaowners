@@ -176,5 +176,3 @@ Nozzle polishing
 ----------------
 
 This needs more testing
-
-<Category:Klipper>

@@ -1,5 +1,3 @@
-__TOC__
-
 This is valid for MK2.5 and MK3 and newer.
 
 Background information
@@ -20,42 +18,44 @@ Step by step - manual print based PINDA temperature calibration
 
 The process takes only an evening and is not hard to do. The following steps have to be performed:
 
-1.  [Prepare GCODE files](#Prepare_GCODE_files "wikilink")
-2.  [Disable temperature calibration](#Disable_temperature_calibration "wikilink")
-3.  [Find Live Z value for each temperature](#Find_Live_Z_value_for_each_temperature "wikilink")
-4.  [Caculate offsets](#Caculate_offsets "wikilink")
-5.  [Store offsets in EEPROM](#Store_offsets_in_EEPROM "wikilink")
-6.  [Enable temperature calibration](#Enable_temperature_calibration "wikilink")
-7.  [Set Live Z to the 35C value](#Set_Live_Z_to_the_35C_value "wikilink")
-8.  [(Optionally) verify temperature calibration](#.28Optionally.29_verify_temperature_calibration "wikilink")
+1.  [Prepare GCODE files](#prepare-gcode-files "wikilink")
+2.  [Disable temperature calibration](#disable-temperature-calibration "wikilink")
+3.  [Find Live Z value for each temperature](#find-live-z-value-for-each-temperature "wikilink")
+4.  [Caculate offsets](#calculate-offsets "wikilink")
+5.  [Store offsets in EEPROM](#store-offsets-in-eeprom "wikilink")
+6.  [Enable temperature calibration](#enable-temperature-calibration "wikilink")
+7.  [Set Live Z to the 35C value](#set-live-z-to-the-35c-value "wikilink")
+8.  [(Optionally) verify temperature calibration](#optionally-verify-temperature-calibration "wikilink")
 
 ### Prepare GCODE files
 
-[1st_layer_35C.stl](media:1st_layer_35C.stl "wikilink") is a very simple STL that consists of a rectangular shape that is 0.2mm high (any rather large 1st layer will do:-)). You import that to your slic3r and use your favorite (PLA) profile to slice. When you have the gcode file on disk (suggested name: “1st_layer_35C_PLA.gcode” or similar), open it in a text editor and modify it so you can use it for the manual temperature calibration process. The change you will be making is to add the M860 g-code. This g-code instructs the printer to wait for the PINDA to reach some temperature or beyond, either cooling (reach temperature or below) or heating (reach temperature or above).
+[1st_layer_35C.stl](files/1st_layer_35C.stl "wikilink") is a very simple STL that consists of a rectangular shape that is 0.2mm high (any rather large 1st layer will do:-)). You import that to your slic3r and use your favorite (PLA) profile to slice. When you have the gcode file on disk (suggested name: “1st_layer_35C_PLA.gcode” or similar), open it in a text editor and modify it so you can use it for the manual temperature calibration process. The change you will be making is to add the M860 g-code. This g-code instructs the printer to wait for the PINDA to reach some temperature or beyond, either cooling (reach temperature or below) or heating (reach temperature or above).
 
 Here is a snippet that I use for the 35C gcode:
 
-`...`
-`M83  ; extruder relative mode`
-`; cooldown`
-`M104 S0 ; set extruder temp`
-`M140 S0 ; set bed temp`
-`G28 W ; home all without mesh bed level`
-`G0 Z100 ; Cooling PINDA position`
-`M106 S255 ; Turn fan on`
-`M860 S30; Let PINDA cool down to 30C`
-`M107 ; Turn fan off`
-`; warmup`
-`M104 S215 ; set extruder temp`
-`M140 S60 ; set bed temp`
-`M190 S60 ; wait for bed temp`
-`M109 S215 ; wait for extruder temp`
-`G0 X50 Y50 Z0.15 ; this is a good PINDA heating position`
-`M860 S35 ; put here the temperature that you want to calibrate`
-`; start the print`
-`G28 W ; home all without mesh bed level`
-`G80 ; mesh bed leveling`
-`...`
+```
+...
+M83  ; extruder relative mode
+; cooldown
+M104 S0 ; set extruder temp
+M140 S0 ; set bed temp
+G28 W ; home all without mesh bed level
+G0 Z100 ; Cooling PINDA position
+M106 S255 ; Turn fan on
+M860 S30; Let PINDA cool down to 30C
+M107 ; Turn fan off
+; warmup
+M104 S215 ; set extruder temp
+M140 S60 ; set bed temp
+M190 S60 ; wait for bed temp
+M109 S215 ; wait for extruder temp
+G0 X50 Y50 Z0.15 ; this is a good PINDA heating position
+M860 S35 ; put here the temperature that you want to calibrate
+; start the print
+G28 W ; home all without mesh bed level
+G80 ; mesh bed leveling
+...
+```
 
 You can see the “cooldown” section, where I let the PINDA cool down 5C below the start temperature. There is also the “warmup” section where I set the bed and heater and then wait for the PINDA to reach the start temperature. Note that both sections use the M860 command. When the printer receives the M860 command, it checks if both heatbed and nozzle heaters are off. If so, it treats the M860 command as an instruction to wait for the PINDA to cool down, and will wait until the PINDA temperature is at or below the specified value. Otherwise, it treats this command as instruction to wait for the PINDA to warm up, and will wait until the PINDA temperature is at or above the specified value.
 
@@ -89,7 +89,9 @@ Repeat this process using the g-code files for all the temperatures. For each te
 
 I use a spreadsheet to calculate the offset values, but any calculator will do. Prusa has written “my” formula in a quite concise way on their wiki (link below), so I will just reproduce here:
 
-`usteps(T) = (live_adjust(35) - live_adjust(T)) * 400`
+```
+usteps(T) = (live_adjust(35) - live_adjust(T)) * 400
+```
 
 The ustep values have to be integers, so round them off. Be careful to keep track of the sign; the sign is important! I mostly get negative values, but others often get more positive values.
 
@@ -111,10 +113,12 @@ As the last step, you should set live Z now to the value that you found out when
 
 ### (Optionally) verify temperature calibration
 
-If your Prusa i3 MK3 runs at least version 3.3.1 you can use [Temp_cal_veri_v5.gcode](media:Temp_cal_veri_v5.gcode "wikilink") gcode file. The purpose is to have a printable test to verify that the values in your EEPROM value are good. The Gcodes prints six squares in one go, on the same plate. This takes a while because the PINDA has to cool down in between printing of each square. You just have to watch and wait. The top left square is printed with a PINDA temperature of 35C, right next to it is a 40C square printed and so on. So the squares are:
+If your Prusa i3 MK3 runs at least version 3.3.1 you can use [Temp_cal_veri_v5.gcode](files/Temp_cal_veri_v5.gcode "wikilink") gcode file. The purpose is to have a printable test to verify that the values in your EEPROM value are good. The Gcodes prints six squares in one go, on the same plate. This takes a while because the PINDA has to cool down in between printing of each square. You just have to watch and wait. The top left square is printed with a PINDA temperature of 35C, right next to it is a 40C square printed and so on. So the squares are:
 
-`35C 40C 45C`
-`50C 55C 60C`
+```
+35C 40C 45C
+50C 55C 60C
+```
 
 Here is picture of how that print looks like: <img src="images/Tempcalveri.jpg" title="fig:Tempcalveri.jpg" alt="Tempcalveri.jpg" height="400" />
 
@@ -125,16 +129,17 @@ How to take advantage of the temperature calibration table
 
 So now that you have calibrated the temperature compensation table, you need to make sure that your PINDA is always in the temperature range of 35C to 60C before the printer homes and does the mesh bed leveling. A very easy way to do that is to use the code M860 code again. Because the PINDA calibration starts at 35C, we just need to insert an M860 g-code to tell the printer to start a print only when the PINDA is at or above that value. The g-code snippet below shows how to do that, for the Slic3r slicing software (put this in your Start g-code in the printer definition). Note that the M860 occurs **after** the bed and nozzle heaters are turned on. We want this because we want the printer to check the PINDA temp is at **or above** the specified value.
 
-``
-`G28 W ; home all without mesh bed level`
-`M104 S[first_layer_temperature] ; set extruder temp`
-`M140 S[first_layer_bed_temperature] ; set bed temp`
-`M190 S[first_layer_bed_temperature] ; wait for bed temp`
-`M109 S[first_layer_temperature] ; wait for extruder temp`
-`G0 X50 Y50 Z0.15 ; this is a good PINDA heating position`
-`M860 S35 ; wait until PINDA is >= 35C`
-`G28 W ; home all without mesh bed level`
-`G80 ; mesh bed leveling`
+```
+G28 W ; home all without mesh bed level
+M104 S[first_layer_temperature] ; set extruder temp
+M140 S[first_layer_bed_temperature] ; set bed temp
+M190 S[first_layer_bed_temperature] ; wait for bed temp
+M109 S[first_layer_temperature] ; wait for extruder temp
+G0 X50 Y50 Z0.15 ; this is a good PINDA heating position
+M860 S35 ; wait until PINDA is >= 35C
+G28 W ; home all without mesh bed level
+G80 ; mesh bed leveling
+```
 
 An Alternative Approach that Does Not Require Temperature Calibration
 ---------------------------------------------------------------------
@@ -143,22 +148,23 @@ If the above process seems too much, and you don't mind waiting a bit longer at 
 
 Here is some example start gcode that achieves this:
 
-``
-`G28 W ; home all without mesh bed level`
-`M104 S0 ; Turn off all heaters`
-`M140 S0 ; Turn off all heaters`
-`M106 S255 ; turn on fan`
-`G0 Z100 ; PINDA cooling position`
-`M860 S30 ; wait until PINDA is <= 30C`
-`M107 ; turn off fan`
-`M104 S[first_layer_temperature] ; set extruder temp`
-`M140 S[first_layer_bed_temperature] ; set bed temp`
-`M190 S[first_layer_bed_temperature] ; wait for bed temp`
-`M109 S[first_layer_temperature] ; wait for extruder temp`
-`G0 X50 Y50 Z0.15 ; this is a good PINDA heating position`
-`M860 S35 ; wait until PINDA is >= 35C`
-`G28 W ; home all without mesh bed level`
-`G80 ; mesh bed leveling`
+```
+G28 W ; home all without mesh bed level
+M104 S0 ; Turn off all heaters
+M140 S0 ; Turn off all heaters
+M106 S255 ; turn on fan
+G0 Z100 ; PINDA cooling position
+M860 S30 ; wait until PINDA is <= 30C
+M107 ; turn off fan
+M104 S[first_layer_temperature] ; set extruder temp
+M140 S[first_layer_bed_temperature] ; set bed temp
+M190 S[first_layer_bed_temperature] ; wait for bed temp
+M109 S[first_layer_temperature] ; wait for extruder temp
+G0 X50 Y50 Z0.15 ; this is a good PINDA heating position
+M860 S35 ; wait until PINDA is >= 35C
+G28 W ; home all without mesh bed level
+G80 ; mesh bed leveling
+```
 
 Because the PINDA is always at 35C at the start of the print, there is no need for calibration. Of course, in theory, you could pick any other temperature; you do not “need” to be in the calibration range. But 35C is a good value that has been shown to work.
 

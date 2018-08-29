@@ -60,7 +60,7 @@ Leveling Your Bed
 
 Now that we have the springs in place, we are ready to perform the actual bed leveling procedure. You could tell the printer to perform the bed leveling procedure by sending it a g-code (G80), and then read the values back out using another g-code (G81), and then use the returned values to figure out which screws to tighten or loosen. But it's considerably easier if you have some software to do this task.
 
-The software we will discuss here is a plug-in for the popular Octoprint software. Several of the Discord users collaborated on a [Octoprint plug-in](https://github.com/ff8jake/OctoPrint-PrusaMeshMap) that shows a representation of the mesh bed leveling points, and the interpolated contour that the Prusa firmware uses. This plugin requires stock Prusa firmware as of right now, with Klipper support hopefully coming soon. Indications are that the Klipper support will be even better because it will measure more than 9 points!
+The software we will discuss here is a plug-in for the popular Octoprint software. Several of the Discord users collaborated on a [Octoprint plug-in](https://github.com/PrusaOwners/OctoPrint-PrusaMeshMap) that shows a representation of the mesh bed leveling points, and the interpolated contour that the Prusa firmware uses. This plugin requires stock Prusa firmware as of right now, with Klipper support hopefully coming soon. Indications are that the Klipper support will be even better because it will measure more than 9 points!
 
 Some sample output from this plug-in can be seen in the screenshot below.
 <img src="images/Octoprint-MeshMap-Screenshot.PNG" title="SpringInstalled.PNG" alt="SpringInstalled.PNG" height="400" />

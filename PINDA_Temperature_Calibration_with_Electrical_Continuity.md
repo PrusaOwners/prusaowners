@@ -58,25 +58,26 @@ I recommend you use the bed temperatures described in [@stahlfabrik's article](M
 
 Here is some sample g-code for a measurement at 60C
 
-``
-`; cooldown`
-`M104 S0 ; set extruder temp`
-`M140 S0 ; set bed temp`
-`G28 W ; home all without mesh bed level`
-`G0 Z100 ; Cooling PINDA position`
-`M106 S255 ; Turn fan on`
-`M860 S58; UPDATE WITH PINDA TARGET TEMP MINUS TWO`
-`M107 ; Turn fan off`
-`; warmup`
-`M104 S170 ; set extruder temp`
-`M190 S110 ; UPDATE WITH THE APPROPRIATE BED TEMP`
-`G0 X50 Y50 Z0.15 ; this is a good PINDA heating position`
-`M860 S60 ; UPDATE WITH THE APPROPRIATE PINDA TEMP`
-`; start the print`
-`G28 W ; home all without mesh bed level`
-`G80 ; mesh bed leveling`
-`G0 X129 Y93 Z0.15 F1000 ; UPDATE WITH YOUR X AND Y VALUES`
-`M300 S1396 P714 ; Beep so we know it is ready`
+```
+; cooldown
+M104 S0 ; set extruder temp
+M140 S0 ; set bed temp
+G28 W ; home all without mesh bed level
+G0 Z100 ; Cooling PINDA position
+M106 S255 ; Turn fan on
+M860 S58; UPDATE WITH PINDA TARGET TEMP MINUS TWO
+M107 ; Turn fan off
+; warmup
+M104 S170 ; set extruder temp
+M190 S110 ; UPDATE WITH THE APPROPRIATE BED TEMP
+G0 X50 Y50 Z0.15 ; this is a good PINDA heating position
+M860 S60 ; UPDATE WITH THE APPROPRIATE PINDA TEMP
+; start the print
+G28 W ; home all without mesh bed level
+G80 ; mesh bed leveling
+G0 X129 Y93 Z0.15 F1000 ; UPDATE WITH YOUR X AND Y VALUES
+M300 S1396 P714 ; Beep so we know it is ready
+```
 
 This g-code will first wait for the PINDA to cool off, before heating the bed and nozzle. Once the bed has reached temperature, it will move the PINDA down close to the bed and wait for it to heat to the target temperature. Then it will perform a mesh bed level and then move the nozzle over the tape. Finally, it will tell the printer to beep so that you know it is ready for a measurement.
 
@@ -93,7 +94,9 @@ The remainder of the process is identical to that described in (you guessed it) 
 
 Now that we have the Live-Z offset values, we calculate the ustep values:
 
-`usteps(T) = (live_adjust(35) - live_adjust(T)) * 400`
+```
+usteps(T) = (live_adjust(35) - live_adjust(T)) * 400
+```
 
 The ustep values have to be integers, so round them off. Be careful to keep track of the sign; the sign is important! I mostly get negative values, but others often get more positive values.
 
@@ -114,16 +117,17 @@ How to take advantage of the temperature calibration table
 
 So now that you have calibrated the temperature compensation table, you need to make sure that your PINDA is always in the temperature range of 35C to 60C before the printer homes and does the mesh bed leveling. A very easy way to do that is to use the code M860 code again. Because the PINDA calibration starts at 35C, we just need to insert an M860 g-code to tell the printer to start a print only when the PINDA is at or above that value. The g-code snippet below shows how to do that, for the Slic3r slicing software (put this in your Start g-code in the printer definition). Note that the M860 occurs **after** the bed and nozzle heaters are turned on. We want this because we want the printer to check the PINDA temp is at **or above** the specified value.
 
-``
-`G28 W ; home all without mesh bed level`
-`M104 S[first_layer_temperature] ; set extruder temp`
-`M140 S[first_layer_bed_temperature] ; set bed temp`
-`M190 S[first_layer_bed_temperature] ; wait for bed temp`
-`M109 S[first_layer_temperature] ; wait for extruder temp`
-`G0 X50 Y50 Z0.15 ; this is a good PINDA heating position`
-`M860 S35 ; wait until PINDA is >= 35C`
-`G28 W ; home all without mesh bed level`
-`G80 ; mesh bed leveling`
+```
+G28 W ; home all without mesh bed level
+M104 S[first_layer_temperature] ; set extruder temp
+M140 S[first_layer_bed_temperature] ; set bed temp
+M190 S[first_layer_bed_temperature] ; wait for bed temp
+M109 S[first_layer_temperature] ; wait for extruder temp
+G0 X50 Y50 Z0.15 ; this is a good PINDA heating position
+M860 S35 ; wait until PINDA is >= 35C
+G28 W ; home all without mesh bed level
+G80 ; mesh bed leveling
+```
 
 ### Calibrate Live Z at 35C
 
@@ -131,10 +135,12 @@ Since this process does not include calibration of the Live-Z offset, we need to
 
 ### (Optionally) verify temperature calibration
 
-If your Prusa i3 MK3 runs at least version 3.3.1 you can use [Temp_cal_veri_v5.gcode](media:Temp_cal_veri_v5.gcode "wikilink") gcode file. The purpose is to have a printable test to verify that the values in your EEPROM value are good. The Gcodes prints six squares in one go, on the same plate. This takes a while because the PINDA has to cool down in between printing of each square. You just have to watch and wait. The top left square is printed with a PINDA temperature of 35C, right next to it is a 40C square printed and so on. So the squares are:
+If your Prusa i3 MK3 runs at least version 3.3.1 you can use [Temp_cal_veri_v5.gcode](files/Temp_cal_veri_v5.gcode "wikilink") gcode file. The purpose is to have a printable test to verify that the values in your EEPROM value are good. The Gcodes prints six squares in one go, on the same plate. This takes a while because the PINDA has to cool down in between printing of each square. You just have to watch and wait. The top left square is printed with a PINDA temperature of 35C, right next to it is a 40C square printed and so on. So the squares are:
 
-`35C 40C 45C`
-`50C 55C 60C`
+```
+35C 40C 45C
+50C 55C 60C
+```
 
 Here is picture of what my print looks like: <img src="images/PINDA_cal_with_continuity_results.jpg" title="fig:PINDA_cal_with_continuity_results.jpg" alt="PINDA_cal_with_continuity_results.jpg" height="400" />
 

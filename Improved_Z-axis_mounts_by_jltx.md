@@ -129,5 +129,3 @@ If you are not also replacing the X Carriage ends then we can just follow the pr
 8. Insert the front screws into each of the motor mounts, and tighten all 4 screws securing the Z motors.
 
 9. Replace cable-ties securing the Z-motor wiring
-
-[Category: Hardware](Category:_Hardware "wikilink")
