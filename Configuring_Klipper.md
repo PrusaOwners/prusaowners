@@ -218,5 +218,3 @@ pins: !PB7
 The config file is broken up into sections by \[\]. Under each of these sections is relevant configurations. For example, under \[tmc2130 stepper_x\] you can change settings such as running current, microstepping, distance per step, and homing speeds.
 
 To apply changes made in the config file, issue the following command to Octoprint under the Terminal tab: RESTART
-
-<Category:Klipper>

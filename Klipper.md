@@ -1,5 +1,3 @@
-__TOC__
-
 About Klipper
 -------------
 

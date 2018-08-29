@@ -11,5 +11,3 @@ Sortable, filterable spreadsheet with part/file names, and recommendations for m
 ![<File:Skelestruder> Legend.jpg](images/Skelestruder_Legend.jpg "File:Skelestruder Legend.jpg")
 
 ![<File:Skelestruder> Legend Alt View.jpg](images/Skelestruder_Legend_Alt_View.jpg "File:Skelestruder Legend Alt View.jpg")
-
-<Category:Hardware>

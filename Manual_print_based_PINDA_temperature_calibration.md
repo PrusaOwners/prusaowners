@@ -1,5 +1,3 @@
-__TOC__
-
 This is valid for MK2.5 and MK3 and newer.
 
 Background information
