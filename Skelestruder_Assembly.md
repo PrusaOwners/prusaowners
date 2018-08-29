@@ -6,42 +6,42 @@ HW (vitamins)
 
 What parts you need to acquire, including some you can harvest from spares or the stock extruder.
 
-| Parts                             | For Stock | For Skelestruder  | Notes |
-|-----------------------------------|-----------|-------------------|-------|
-| **Required**                      |           |                   |       |
-| Filament sensor                  |          | 
-| Bowden                           |           |
-| E3d extruder assembler           |          | 
-| Bondtech drive                   |        |
-| Bondtech idler with bearings     |        |
-| BondTech axle                    |        |
-| PTFE x 13mm                      |        |
-| Nylon washer                     |        |
-| Spring                           |        |
-| M3x10mm screw                          |        |
-| M3x30mm screw                          |        |
-| M3x40mm screw                          |        |
-| M3x18mm screw                          |        |
-| M3 sq nut                        |        |
-| M3 hex nut                       |        |
-| M3x25mm screw                         |        |
-| Zip ties                         |        |
-| M3 Nylock nut                    |        |
-| M3x20mm screw                          |        |
-| M3x6mm screw                       |        | (or 4 or 8) 
-| M3x12mm screw                         |        |
-| 105zz bearings                   |        |
-| 140x6mm GT2 loop belt (70 teeth) |        |
-| 5x45mm Shaft                     | 0      | 1                     | Longer is ok  <br> Available pre-cut with current flat from Misumi  <br> UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
-| **Optional, but recommended**    |        |   |   |
-| Short body Nema17 stepper motor  | 0      | 1                     | Small motor helps reduce weight in the extruder. <br> The stock motor also works with the current setup. |
-| New PTFE tubing                  |        |
-| New GT2 belt to replace X belt.  |        |
-| Cleaning brush wheel             |        |
-| **Optional**                     |        |
-| 14T pulley                       |        |
-| 20mm unmount wheel brush         |        |
-| 673 (MR63) bearing               | 0      | 1                     |   |
+| Parts                            | For Stock | For Skelestruder  | Notes |
+|----------------------------------|-----------|-------------------|-------|
+| **Required**                     |           |                   |       |
+| Filament sensor                  | 1 | 1 | Stock MK3 Filament Sensor |
+| Bowden                           | 1 | 1 | For filament inlet |
+| E3d extruder assembler           | 1 | 1 | |
+| Bondtech drive                   | 1 | 1 | Standard Bondtech Drive Gear |
+| Bondtech idler with bearings     | 1 | 1 | |
+| BondTech axle                    | 1 | 1 | |
+| PTFE x 13mm                      | 1 | 1 | |
+| Nylon washer                     | 2 | 2 | |
+| Spring                           | 2 | 1 | |
+| M3x10mm screw                    | 10 | 9 | For M3 hardware, check your local hobby shop first, or order from [Bolt Depot](https://www.boltdepot.com/Metric_socket_cap_Stainless_steel_18-8_(A-2)_3mm_x_0.5mm.aspx) |
+| M3x30mm screw                    | 4 | 1 | |
+| M3x40mm screw                    | 4 | 2 | |
+| M3x18mm screw                    | 7 | 3 | |
+| M3 sq nut                        | 11 | 4 | |
+| M3 hex nut                       | 4 | 6 | Spares (if MK3 bought as kit, otherwise purchase) |
+| M3x25mm screw                    | 2 | 3| Spares |
+| Zip ties                         | 0 | 2| Spares (if MK3 bought as kit, otherwise purchase) |
+| M3 Nylock nut                    | 0 | 2| Spares (if MK3 bought as kit, otherwise purchase) |
+| M3x20mm screw                    | 0 | 1| Spares? (if MK3 bought as kit, otherwise purchase) |
+| M3x6mm screw (or 4, or 8)        | 0 | 1 | Purchase |
+| M3x12mm screw                    | 0 | 2 | Purchase |
+| 105zz bearings                   | 0 | 3 | [Purchase](https://www.amazon.com/gp/product/B00ZHSTKCE) |
+| 140x6mm GT2 loop belt (70 teeth) | 0 | 1 | [Purchase](https://www.robotdigg.com/product/88) |
+| 5x45mm Shaft (Longer is OK)      | 0 | 1 | Purchase<br />Easiest USA: [Custom order with flats](https://us.misumi-ec.com/vona2/detail/110302634310/?ProductCode=SSFJ5-45-A13-E6-WFC4&curSearch=%7b%22field%22%3a%22%40search%22%2c%22seriesCode%22%3a%22110302634310%22%2c%22innerCode%22%3a%22%22%2c%22sort%22%3a1%2c%22specSortFlag%22%3a0%2c%22allSpecFlag%22%3a0%2c%22page%22%3a1%2c%22pageSize%22%3a%2260%22%2c%2200000028943%22%3a%2245%22%2c%2200000346361%22%3a%224%22%2c%2200000346357%22%3a%2213%22%2c%2200000346358%22%3a%226%22%2c%22fixedInfo%22%3a%22MDM00000538433110302634310-1518483034%7c2175%22%7d&Tab=preview)<br />Easiest UK: [Custom order with flats](https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6&PNSearch=SSFJ5-45-WFC4-A13-E6&KWSearch=SSFJ5-45-A13-E6-WFC4&searchFlow=results2type)<br />(double check 3D render to make sure you see two flats)<br />Lightest: [requires some prep (see below)](https://www.amainhobbies.com/sab-steel-5mm-tail-spindle-shaft-sabh0329-s/p275071)<br />Cheapest: [100mm raw shaft](https://www.amazon.com/uxcell-100mm-Model-Straight-Metal/dp/B01B27MJC6/ref=sr_1_5?ie=UTF8&qid=1532570438&sr=8-5&keywords=5mm+shaft)            | Longer is ok  <br> Available pre-cut with current flat from Misumi  <br> UK source: https://uk.misumi-ec.com/vona2/detail/110302634310/?HissuCode=SSFJ5-45-WFC4-A13-E6 |
+| **Optional, but recommended**    | | | |
+| Short body Nema17 stepper motor  | 0 | 1 | [Purchase](https://www.amazon.com/Short-Bipolar-Motor-18-4oz-13Ncm/dp/B00PNEQ79Q)<br />[UK Purchase](https://uk.rs-online.com/web/p/products/6783161/?grossPrice=Y&cm_mmc=UK-PLA-DS3A-_-google-_-PLA_UK_EN_Connectors-_-Pcb_Connectors%7CPcb_Connector_Housings-_-PRODUCT+GROUP&matchtype=&gclid=Cj0KCQjwzK_bBRDDARIsAFQF7zOu51jjhMdVWsvYnA3NRbXGu-inR3nOxfX4HcPcTSh-y5xWU3KIinsaAgNJEALw_wcB&gclsrc=aw.ds)<br />I recommend getting one with wire plug on motor for easier assembly.<br />Nema14 is also supported, but Nema17 provides more torque and better center of mass.<br />The plug on the Einsy side of the cable can be purchased from [Ultimachine](https://ultimachine.com/products/2-54mm-1x4-connector-positive-latch-housing-kit-5-pack). |
+| New PTFE tubing                  | 0 | 1 | [Purchase](https://www.filastruder.com/collections/e3d-spare-parts-and-accessories/products/capricorn-ptfe-tubing) |
+| New GT2 belt to replace X belt.  | 1 | 1 | New X belt is shorter than stock due to new carriage connection. Can just trim stock one instead. |
+| Cleaning brush wheel             | 0 | 1 | [Purchase](https://widgetsupply.com/product/ban14.html) |
+| **Optional**                     | | | |
+| 14T pulley                       | 0 | 1 |(only for 4:1)<br />[Purchase](https://openbuildspartstore.com/gt2-2m-timing-pulley-14-tooth/) |
+| 20mm unmount wheel brush         | 0 | 1 | Used for gear cleaner.<br />[Purchase](https://widgetsupply.com/product/ban14.html) |
+| 673 (MR63) bearing               | 0 | 1 | Used for indirect sensor<br />[Purchase](https://www.amazon.com/gp/product/B00ZHSQX42/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1) |
 
 Note: Source links for purchase in table above are for reference only. Other suppliers are available depending on your level of impatience :-)
 
