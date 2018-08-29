@@ -2,7 +2,7 @@ Skelestruder is a custom 3.5:1 (or 4:1) geared extruder with mostly printable pa
 
 Link to parts <https://www.thingiverse.com/thing:2845416/#files>
 
-Improved instructions &gt;&gt;&gt; [Skelestruder Assembly](Skelestruder_Assembly "wikilink")
+Improved instructions &gt;&gt;&gt; [Skelestruder Assembly](https://github.com/PrusaOwners/prusaowners/wiki/Skelestruder_Assembly)
 
 Sortable, filterable spreadsheet with part/file names, and recommendations for material and color is available [here](https://docs.google.com/spreadsheets/d/19_bpOaFNy87UGM9JST4Ibljp2dwbiq5kfsb0czmPD2Y/edit?usp=sharing).
 
