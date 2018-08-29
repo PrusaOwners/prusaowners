@@ -23,8 +23,8 @@ N/A
 
 #### ALPHA
 
--   Mesh Bed Leveling - See [Klipper.md#configuring-mesh-bed-leveling](Klipper.md#configuring-mesh-bed-leveling "wikilink")
--   Pinda Drift Compensation - See [Klipper.md#alpha-probe-temperature-compensation](Klipper.md#alpha-probe-temperature-compensation "wikilink")
+-   Mesh Bed Leveling - See [Klipper\#.5BAlpha.5D_Configuring_Mesh_Bed_Leveling](Klipper#.5BAlpha.5D_Configuring_Mesh_Bed_Leveling "wikilink")
+-   Pinda Drift Compensation - See[Klipper\#.5BAlpha.5D_Probe_Temperature_Compensation](Klipper#.5BAlpha.5D_Probe_Temperature_Compensation "wikilink")
 
 #### Todo (ordered by priority)
 
