@@ -1,4 +1,4 @@
-On this page we describe a slight modification of the PINDA temperature compensation table calibration process described in [Manual print based PINDA temperature calibration](Manual_print_based_PINDA_temperature_calibration.md "wikilink"). This modified approach gives similar results, and for some better results (those who have a hard time judging the z-offset by observing the first layer quality). However, it requires some equipment that not every user will have access to, so for most users @stahlfabrik's approach is recommended.
+On this page we describe a slight modification of the PINDA temperature compensation table calibration process described in [Manual print based PINDA temperature calibration](Manual_print_based_PINDA_temperature_calibration "wikilink"). This modified approach gives similar results, and for some better results (those who have a hard time judging the z-offset by observing the first layer quality). However, it requires some equipment that not every user will have access to, so for most users @stahlfabrik's approach is recommended.
 
 ### Summary
 
@@ -29,7 +29,7 @@ Here is a picture of my printer set up for a measurement:
 
 Now using the printer “Settings/Move Axis” menu, move the print head until the nozzle is centered over the section of tape you flattened out. Note the X and Y values, as we will need to insert these in our G-code later.
 
-Before proceeding, please follow-the set-up instructions in [@stahlfabrik's article](Manual_print_based_PINDA_temperature_calibration.md "wikilink"), specifically disabling Temp Cal in the menus:
+Before proceeding, please follow-the set-up instructions in [@stahlfabrik's article](Manual_print_based_PINDA_temperature_calibration "wikilink"), specifically disabling Temp Cal in the menus:
 
 1.  In the printer menu, turn the setting for “Temp. Cal.” to “off”.
 2.  Use the terminal to your printer to send the command “M861 Z”. This sets all offsets to zero. You can verify that the values were cleared to zero by sending “M861 ?”. This g-code command will instruct the printer to output the current offsets in the EEPROM table.
@@ -43,7 +43,7 @@ The process to prepare the printer for the measurement is very similar to that d
 3.  Carefully lower the nozzle using the Live-Z Offset feature in the printer menu until the nozzle just touches the copper tape. We will know when it touches the tape because our multimeter will beep (or our LED will light). We want to go slow when lowering the nozzle, so that we don't ram the nozzle into the bed and cause the motors to skip a step. If you do that, I recommend you note the approximate value, repeat the whole measurement at this temp (re-run the g-code), and then knowing the approximate value be more careful about lowering this time.
 4.  Record the z-offset value and the associated PINDA temp. **Before you proceed to the next measurement, be sure and remove the probe clip from the tape.**
 
-I recommend you use the bed temperatures described in [@stahlfabrik's article](Manual_print_based_PINDA_temperature_calibration.md "wikilink"), but for all measurements set the nozzle temperature to 170C, and leave it there for the whole measurement. The reason for this is that the hot-end and nozzle can expand and contract with temperature changes, so to get maximum accuracy we want to keep that constant throughout the test. For convenience, here is stahlfabrik's table of recommended bed temperatures:
+I recommend you use the bed temperatures described in [@stahlfabrik's article](Manual_print_based_PINDA_temperature_calibration "wikilink"), but for all measurements set the nozzle temperature to 170C, and leave it there for the whole measurement. The reason for this is that the hot-end and nozzle can expand and contract with temperature changes, so to get maximum accuracy we want to keep that constant throughout the test. For convenience, here is stahlfabrik's table of recommended bed temperatures:
 
 | PINDA target temp | Used bed temp |
 |-------------------|---------------|
@@ -88,7 +88,7 @@ In the g-code above, make sure you update the following values:
 -   Update the target PINDA temp on the line that says “UPDATE WITH THE APPROPRIATE PINDA TEMP”
 -   On the second to last line, update the X and Y values here with the ones you noted when aligning the nozzle over the copper tape.
 
-The remainder of the process is identical to that described in (you guessed it) [@stahlfabrik's article](Manual_print_based_PINDA_temperature_calibration.md "wikilink"). I've included those steps here so you don't have to ping-pong back and forth between the two articles.
+The remainder of the process is identical to that described in (you guessed it) [@stahlfabrik's article](Manual_print_based_PINDA_temperature_calibration "wikilink"). I've included those steps here so you don't have to ping-pong back and forth between the two articles.
 
 ### Calculate offsets
 
