@@ -1,4 +1,8 @@
-Welcome to the S3l3ctor wiki! This is the introduction page, where I talk about what S3l3ctor is.
+This is S3l3ctor, an open source, sub $100, 6 chroma filament selector system currently under development. You can print any color (up to 6) you want without changing your extruder design.
+
+
+
+[PLA bearings](PLA_bearings "wikilink")
 
 S3l3ctor is:
 * A 100% open source filament selector
@@ -22,7 +26,9 @@ At this point the project is undergoing closed alpha testing and will have an op
 
 Link the the [Github STLs](https://github.com/PrusaOwners/s3l3ctor) (Please please please don't click unless you know what you are doing)
 
-Printed Parts:
+# BOM
+
+## Printed Parts:
 
 | STL Name              | Quantity |
 | ---- | ---- |
@@ -40,7 +46,7 @@ Printed Parts:
 | For Skelestruder People:                        | |
 | PC4-m10_SKELESTRUDER_B1.stl            | 1|
 
-Hardware needed:
+## Hardware:
 
 | Item | Quantity | Example link |                           
 |---- | ---- | ----|
@@ -51,7 +57,7 @@ Hardware needed:
 |Pc4-M10 fittings, pass through or drill them out | 7| soon^tm|
 |PTFE tubing ID 2mm OD 4mm | couple meters | [ebay](<https://www.ebay.com/itm/PTFE-Bowden-Teflon-Tube-1-75-Filament-3D-printer-RepRap-Rostock-Kossel/162932641530?hash=item25ef8acefa%3Am%3Amv4vboRH9_rfasJIsMfowVw%3Asc%3AUSPSFirstClass%2194087%21US%21-1&var=462001182875&_sacat=0&_nkw=teflong+tube+3d+printer&_from=R40&rt=nc&_trksid=m570.l1313&LH_TitleDesc=0%7C0>) |
 
-Electronics:
+## Electronics:
 
 | Item | Quantity | Notes and URL|
 |----|----|----|
@@ -66,5 +72,17 @@ Electronics:
 
 For a RAMPS setup: Set of RAMPS plus at least 2x A4988s (usually 5x) plus Mega Either a 12v brick (2 or more amps) or 24v to 12v buck regulator off of printer PSU 2x NEMA 17s 7-8x microswitches with bearings
 
-Assembly: Pictures when my phone's not stupid
+# Assembly
 
+## Tumbler
+
+### Shaft preperation
+
+Begin by filing, grinding or otherwise abrating a flat a mm or two deep (doesn't really matter), and about 5mm long. While you have the shaft out, make sure that your 625 bearings will slide smoothly along the shaft. They shouldn't slide smoothly like a linear bearing, but at the same time they should not need pounding. A more scientific way to quantify this is with a calipers - if the bearings' ID is more than 30 micron undersized (4.97mm or so), the fit on the 5mm rod is going to be close. Like, probubly too close. I reccomend measuring bearings and 
+
+
+## Main Body
+
+## Magic Mushroom
+
+## Electronics
