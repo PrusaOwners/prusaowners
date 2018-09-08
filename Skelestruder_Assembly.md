@@ -42,6 +42,7 @@ What parts you need to acquire, including some you can harvest from spares or th
 | 14T pulley                       | 0 | 1 |(only for 4:1)<br />[Purchase](https://openbuildspartstore.com/gt2-2m-timing-pulley-14-tooth/) |
 | 20mm unmount wheel brush         | 0 | 1 | Used for gear cleaner.<br />[Purchase](https://widgetsupply.com/product/ban14.html) |
 | 673 (MR63) bearing               | 0 | 1 | Used for indirect sensor<br />[Purchase](https://www.amazon.com/gp/product/B00ZHSQX42/ref=oh_aui_detailpage_o00_s00?ie=UTF8&psc=1) |
+| M5 heat set nut                  | 0 | 1 | For MMU2 (https://www.amazon.com/gp/product/B077CG1W3L/ref=oh_aui_detailpage_o01_s00?ie=UTF8&psc=1) |
 
 Note: Source links for purchase in table above are for reference only. Other suppliers are available depending on your level of impatience :-)
 
@@ -509,6 +510,7 @@ M913 - Print the currently set TMC2130 current values
 I wanted to make it so that you only need to make some gcode changes to operate. This is mostly true. Unfortunately, due to the shorter stack, the filament unload sequence assumes the wrong amount to unwind and doesn’t properly cool the hot bulb which can cause it to stick in cartridge. You can simply unscrew the cartridge and clip off the end to free it (handy trick of skelestruder). But if you do frequent filament swaps, this can be annoying. So best option is to modify the sequence in firmware. Since you are recompiling, might as well set the E steps to 980. Following is a patch file for MK3 3.3.1 you can apply or follow manually to make the changes.
 
 <a href="files/SPV1_3.3.1.patch">SPV1 3.3.1.patch</a>
+<a href="files/SPV1_3.4.0.RC2.patch">SPV1 3.4.0.RC2.patch</a>
 
 - changes E steps, motor current, filament load/unload
 
@@ -541,7 +543,7 @@ The laser is a small dot above the square sensor. If it is blocked, it cannot se
 This patch is only for indirect filament sensor, changes sign of Y motion
 
 ```
-diff --git a/Firmware/pat9125.cpp b/Firmware/pat9125.cpp
+diff --git a/Firmware/pat9125.cpp b/Firmware/pat9125.c
 old mode 100755
 new mode 100644
 index 4894c85..5497467
