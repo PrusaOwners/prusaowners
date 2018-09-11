@@ -98,7 +98,7 @@ Please note that the 35º layer height appeared to have changed while it should 
 
 The results obtained are already very good, and if a 0.01mm caliper was used, within the measurement error.
 
-If you wish, you can make one more iteration. In this case it would make sense to add -2 steps to 45, 50, 55, and 60º compensation values. Please note that whatever correction values come up with during this and any further iterations, you will have to **add** to the previously set values and not replace them.
+If you wish, you can make one more iteration. In this case it would make sense to add -2 steps to 45, 50, 55, and 60º compensation values. These values are more of a guess than exact science, because we are below the resolution of the measurement tool (unless using a micrometer). Please note that whatever correction values come up with during this and any further iterations, you will have to **add** to the previously set values and not replace them.
 
 ## Adjusting the first layer
 
