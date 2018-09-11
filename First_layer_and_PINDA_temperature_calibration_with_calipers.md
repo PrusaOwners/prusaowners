@@ -10,6 +10,8 @@ You need a tool capable of measuring thickness repeatably with at least +/-0.01m
 
 # Method
 
+## Finding good PINDA temperature compensation values
+
 Start with enabling _Temp. cal._ in the _Settings_ menu on the printer. Then make sure that the compensation table is zeroed out, by issuing `M861 Z` command.
 
 ```
@@ -97,5 +99,12 @@ Please note that the 35º layer height appeared to have changed while it should 
 The results obtained are already very good, and if a 0.01mm caliper was used, within the measurement error.
 
 If you wish, you can make one more iteration. In this case it would make sense to add -2 steps to 45, 50, 55, and 60º compensation values. Please note that whatever correction values come up with during this and any further iterations, you will have to **add** to the previously set values and not replace them.
+
+## Adjusting the first layer
+
+Now you can adjust your first layer for perfect adhesion. There are two ways to do it:
+
+- The traditional way is to decrease the first layer height using Live Z adjustment until the filament reliably adheres to the printing surface. For me it happens at aroung 0.16mm measured first layer height. The disadvantage is that the height of all printed objects will be lower than it should be.
+- The alternative way is to set the first layer height to exactly 0.2mm and increase the first layer flow in the slicer until the filament adheres reliably. The advantages are that this can be configured per-filament and that the object height is unaffected.
 
 Enjoy your perfect first layer!
