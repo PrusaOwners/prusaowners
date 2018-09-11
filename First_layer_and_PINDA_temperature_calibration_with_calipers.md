@@ -1,12 +1,12 @@
-In this guide we present an improved way to adjust both the frst layer height and the PINDA temperature calibration table. This guide is based on the original work by stahlfabrik LINK and has the added benefit of improved precision and repeatability. Unlike the "Electrical continuity" method by motocoder LINK, no hardware of software modifications are required.
+In this guide we present an improved way to adjust both the frst layer height and the PINDA temperature calibration table. This method is based on the original work by _@stahlfabrik_ ([Manual_print_based_PINDA_temperature_calibration](Manual_print_based_PINDA_temperature_calibration.md)) and has the added benefit of improved precision and repeatability. Unlike the [PINDA_Temperature_Calibration_with_Electrical_Continuity](PINDA_Temperature_Calibration_with_Electrical_Continuity.md) method by _@motocoder_, no hardware of software modifications are required.
 
 # Prerequisites
 
-- A Prusa i3 MK3 with original firmware version 3.3.1 or later, calibrated and capable of producing at least remotely passable first layer;
-- A digital caliper or micrometer; and
+- A Prusa i3 MK3 with the original firmware version 3.3.1 or later, calibrated and capable of producing at least a remotely passable first layer;
+- A digital caliper or a micrometer; and
 - A specially crafted [test print ](files/First_layer_calibration_6_temp.gcode "wikilink").
 
-You need a tool capable of measuring thickness repeatably with at least +/-0.01mm precision to have 10% error or better. A typical entry-level digital calipers should be capable of that. If you wish (and have the tool) you can use a digital or vernier scale micrometer.
+You need a tool capable of measuring thickness repeatably with at least +/-0.01mm precision to have 10% error or better. A typical entry-level digital caliper should be capable of that. If you wish (and have the tool) you can use a digital or a vernier scale micrometer.
 
 # Method
 
@@ -69,7 +69,7 @@ M861 S-4 I3
 M861 S0 I4
 ```
 
-You can skip setting 0 campensation values, in this case, `M861 S0 I4` need not be issued. Make sure to use your own offset values after `S` and not my example ones.
+You can skip setting 0 compensation values, in this case, `M861 S0 I4` need not be issued. Make sure to use your own offset values after `S` and not my example ones.
 
 Verify your table by issuing `M861 ?`.
 
@@ -96,6 +96,6 @@ Please note that the 35º layer height appeared to have changed while it should 
 
 The results obtained are already very good, and if a 0.01mm caliper was used, within the measurement error.
 
-If you wish, you can make one more iteration. In this case it would make sense to add -2 steps to 45, 50, 55, and 60º compensation values. Please note that whateven correction values come up with during this and any further iterations, you will have to **add** to the previously set values and not replace them.
+If you wish, you can make one more iteration. In this case it would make sense to add -2 steps to 45, 50, 55, and 60º compensation values. Please note that whatever correction values come up with during this and any further iterations, you will have to **add** to the previously set values and not replace them.
 
 Enjoy your perfect first layer!
