@@ -102,7 +102,7 @@ Refer to the following diagrams to identify the specific parts referenced in the
 
 | Part        | Variant + File Name                                                                     | PLA | HTPLA | PETG | Plate | Color      | Notes                                                             |
 |-------------|-----------------------------------------------------------------------------------------|-----|-------|------|-------|------------|-------------------------------------------------------------------|
-| E cage B    | SP_Ecage_B_b3a.stl                                                                   |     | Y     | Y    |       | User       | Use 2 perimiters                                                  |
+| E cage B    | SP_Ecage_B_b3a.stl                                                                   |     | Y     | Y    |       | User       | Use 2 perimeters                                                  |
 | E cage F    | SP_Ecage_F17_b2b.stl                                                                 |     | Y     | Y    |       | User       | Remove one ring support                                           |
 | Spider      | SP_spider14_b1.stl SP_spider17_b2.stl                                               | Y   |       |      |       | User       |                                                                   |
 | P rack      | SP_Prack_b3a.stl                                                                      |     | Y     | Y    |       | User       |                                                                   |
