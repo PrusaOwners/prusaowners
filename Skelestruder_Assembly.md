@@ -102,7 +102,7 @@ Refer to the following diagrams to identify the specific parts referenced in the
 
 | Part        | Variant + File Name                                                                     | PLA | HTPLA | PETG | Plate | Color      | Notes                                                             |
 |-------------|-----------------------------------------------------------------------------------------|-----|-------|------|-------|------------|-------------------------------------------------------------------|
-| E cage B    | SP_Ecage_B_b3a.stl                                                                   |     | Y     | Y    |       | User       |                                                                   |
+| E cage B    | SP_Ecage_B_b3a.stl                                                                   |     | Y     | Y    |       | User       | Use 2 perimiters                                                  |
 | E cage F    | SP_Ecage_F17_b2b.stl                                                                 |     | Y     | Y    |       | User       | Remove one ring support                                           |
 | Spider      | SP_spider14_b1.stl SP_spider17_b2.stl                                               | Y   |       |      |       | User       |                                                                   |
 | P rack      | SP_Prack_b3a.stl                                                                      |     | Y     | Y    |       | User       |                                                                   |
@@ -511,7 +511,7 @@ I wanted to make it so that you only need to make some gcode changes to operate.
 
 <a href="files/SPV1_3.3.1.patch">SPV1 3.3.1.patch</a>
 
-<a href="files/SPV1_3.4.0.patch">SPV1 3.4.0.RC2.patch</a>
+<a href="files/SPV1_3.4.0.patch">SPV1 3.4.0.patch</a>
 
 - changes E steps, motor current, filament load/unload
 
