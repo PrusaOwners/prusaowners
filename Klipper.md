@@ -23,7 +23,7 @@ Run the following command:
 
     make
 
-Make sure that Octoprint is not connected to the printer by navigating to <http://octopi.local> or your pi’s IP address on a web browser.
+Ensure that the Raspberry Pi is physically connected to the printer, and that Octoprint is not connected to the printer by navigating to <http://octopi.local> or your pi’s IP address on a web browser (the "Connect" button should be displayed).
 
 Finally, run these three commands to stop Klipper, flash Klipper itself to the microcontroller, and start Klipper again:
 
