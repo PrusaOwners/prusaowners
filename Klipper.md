@@ -44,16 +44,16 @@ This file contains a default configuration for the Prusa i3 MK3 and enables all 
     [mcu]
     serial: /dev/ttyACM0
 
-to match the the USB device from the ls -l command.  Be sure to copy-and-paste the name from the "ls" command (minus the -> ../../ttyACM0 portion) that you ran above as the name will be different for each printer.  The updated config might look like:
+to match the the USB device from the ls -l command.  Be sure to copy-and-paste the name from the "ls" command (minus the -> ../../ttyACM0 portion) that you ran above as the name will be different for each printer.  The line in the updated config might look like:
 
     [mcu]
     serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
-Finally restart Klipper with the following command:
+Next, restart Klipper with the following command:
 
     sudo service klipper restart
 
-Lastly, connect Klipper to Octoprint:
+Finally, connect Klipper to Octoprint:
 
 Go to the setting wrench at the top.
 
