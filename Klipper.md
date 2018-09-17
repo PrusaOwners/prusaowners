@@ -23,25 +23,39 @@ Run the following command:
 
     make
 
-Make sure that Octoprint is not connected to the printer by navigating to <http://octopi.local> or your pi’s IP address on a web browser.
+Ensure that the Raspberry Pi is physically connected to the printer, and that Octoprint is not connected to the printer by navigating to <http://octopi.local> or your pi’s IP address on a web browser (the "Connect" button should be displayed).
 
-Finally, run these three commands to stop Klipper, flash Klipper itself to the microcontroller, and start Klipper again:
+Next is finding the USB serial port.  The general way to find a USB serial port is to run ls -l /dev/serial/by-id/ from an ssh terminal on the host machine. It will likely produce output similar to the following:
+
+    lrwxrwxrwx 1 root root 13 Jun  1 21:12 usb-1a86_USB2.0-Serial-if00-port0 -> ../../ttyUSB0
+The name found in the above command (minus the -> ../../ttyACM0 portion) is stable and it should be used in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
 
     sudo service klipper stop
-    make flash FLASH_DEVICE=/dev/ttyACM0
+    make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
     sudo service klipper start
 
 Next, copy the file ~/klipper/config/printer-prusa-i3-mk3-2017.cfg to your home directory and rename it printer.cfg:
 
     cd ~
     cp ~/klipper/config/printer-prusa-i3-mk3-2017.cfg printer.cfg
-    sudo service klipper restart
 
-This file contains a default configuration for the Prusa i3 MK3 and enables all of the experimental features outlined in this wiki.
+This file contains a default configuration for the Prusa i3 MK3 and enables all of the experimental features outlined in this wiki.  The config must be updated with the updated USB information.  Open up printer.cfg in a text editor and change the line listed below:
+
+    [mcu]
+    serial: /dev/ttyACM0
+
+to match the the USB device from the ls -l command.  Be sure to copy-and-paste the name from the "ls" command (minus the -> ../../ttyACM0 portion) that you ran above as the name will be different for each printer.  The line in the updated config might look like:
+
+    [mcu]
+    serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
+
+Next, restart Klipper with the following command:
+
+    sudo service klipper restart
 
 Finally, connect Klipper to Octoprint:
 
-Go to the setting wrench at the top
+Go to the setting wrench at the top.
 
 Under **“Serial Connection”** in **“Additional serial ports”** add **“/tmp/printer”**. Then click **“Save”**.
 
