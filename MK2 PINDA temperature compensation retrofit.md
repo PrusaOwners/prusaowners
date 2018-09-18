@@ -21,6 +21,7 @@ If you're cheap like me, you attach a thermistor to your pinda probe in some sor
 Define the thermistor type you used [here at this line](https://github.com/galagithub/Prusa-Firmware/blob/MK2SE/Firmware/Configuration_prusa.h#L457) And upload the firmware. Connect the thermistor to plug T1. If you need help building the firmware, follow [this guide](http://zaribo.org/blog/how-to-compile-and-modify-prusa-firmware-part-i-setting-up-the-environment/). If you're still stuck, there's a few more guides that you can find via google that you could try.
 
 # Calibration:
+TODO: add support for calibration via M861 gcode - currently not implemented in MK2E firmware
 [Crzcrz's guide](https://github.com/crzcrz/prusaowners/blob/master/First_layer_and_PINDA_temperature_calibration_with_calipers.md) will show you how to calibrate the temperature offset.
 
 
@@ -30,3 +31,4 @@ Backport temperature compensation to latest release of MK2 firmware - current fi
 Add `M860 Sxx` gcode command. Wait until pinda probe reaches `xx` degrees.
 Add precompiled binary download link for firmware.
 Provide default calibration values that seem to work well for V1 PINDA probes
+Add support for calibration via M861 gcode.
