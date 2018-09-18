@@ -56,6 +56,7 @@ This is a wiki for the Original Prusa printers created by Josef Prusa and any pr
 - [PLA bearings](PLA_bearings.md)
 - [Einsy fan voltage mod](Einsy_fan_voltage_mod.md)
 - [Moons stepper motors](Moons_stepper_motors.md)
+- [Mk2 PINDA temp retrofit](https://github.com/PrusaOwners/prusaowners/blob/master/MK2%20PINDA%20temperature%20compensation%20retrofit.md)
 ### Octoprint
 - [Prusa Guide: Octoprint for i3 MK3 using Pi Zero W to Einsy Headers](https://manual.prusa3d.com/c/Octoprint_for_Original_Prusa_i3_MK3)
 - [PrusaMeshMap Plugin for Octoprint](https://github.com/PrusaOwners/OctoPrint-PrusaMeshMap)
