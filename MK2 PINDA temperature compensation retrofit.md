@@ -18,5 +18,12 @@ Connect white wire, which is the thermistor lead on the PINDA V2 probe to T1 the
 https://shop.prusa3d.com/forum/others-archive--f82/is-the-mk3-pinda-v2-compatible-with-the-mk2-rambo--t14786.html
 
 ### PINDA V1 users:
+If you're cheap like me, you attach a thermistor to your pinda probe in some sort of thermally conductive manner. Here is how I did it: https://imgur.com/a/XO0Dp0j
 
-If you're cheap like me, you attach a thermistor to your pinda probe in some sort of thermally conductive manner, and then define the thermistor type here, and flash that: https://github.com/galagithub/Prusa-Firmware/blob/MK2SE/Firmware/Configuration_prusa.h#L457 Then connect the thermistor to plug T1. If you need help building the firmware, follow this guide: http://zaribo.org/blog/how-to-compile-and-modify-prusa-firmware-part-i-setting-up-the-environment/
+Define the thermistor type you used here at this line: https://github.com/galagithub/Prusa-Firmware/blob/MK2SE/Firmware/Configuration_prusa.h#L457 And upload the firmware. Connect the thermistor to plug T1. If you need help building the firmware, follow this guide: http://zaribo.org/blog/how-to-compile-and-modify-prusa-firmware-part-i-setting-up-the-environment/ If you're still stuck, there's a few more guides that you can find via google that you could try.
+
+
+# TODO:
+
+Backport temperature compensation to latest release of MK2 firmware - current firmware is quiet old.
+Add `M860 Sxx` gcode command. Wait until pinda probe reaches `xx` degrees.
