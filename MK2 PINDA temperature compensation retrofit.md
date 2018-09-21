@@ -1,4 +1,6 @@
 # MK2  to MK2E conversion:
+TODO: Bed calibration fails with current firmware that I have been working on.
+TODO: Backport gcodes M860 and M861 to MK2 firmware. Using MK3 firmware branch and modding it to work with MK2's bed points for calibration has proven to be very difficult. As it goes along the probing points in the X direction, it moves in the Y direction, even though all the points are in a straight line as defined in the firmware.
 
 This guide explains how to retrofit a temperature compensating PINDA probe to the Prusa i3 MK2 (and MK2S). The probe triggering distance will drift a significant amount inside of a heated enclosure if no temperature compensation is fitted.
 
