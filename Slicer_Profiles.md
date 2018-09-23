@@ -6,3 +6,4 @@ This page contains profiles (configuration files) for various slicer software, s
 | MK3     | Slic3r PE | [Benchy profiles](https://github.com/PrusaOwners/test-tools-and-objects/tree/master/tools/slicers/Slic3rPE/kwaad2/Benchy) | Profiles from Discord user kwaad2 for generating test benchies |
 | MK3     | Slic3r PE | [0.6mm Production Profiles](files/BuzzAldrin_06mm_PETG_Config_Bundle.ini) | Contains PETG and PC profiles for 0.6mm nozzles tuned for very strong and rigid parts from BuzzAldrin. |
 | MK3     | Slic3r PE | [RealFilament PETG Configs](https://github.com/ManuGithubSteam/RealFilamentSlic3rSettings) | Contains PETG Profiles for Filament from REAL Filement brand from ManuGithubsteam. |
+| MK3     | Slic3r PE | [FFF World FlexiSmart TPU Configs](https://github.com/ManuGithubSteam/RealFilamentSlic3rSettings) | Contains TPU Profiles for FlexiSMART Filament from FFF World brand from ManuGithubsteam. |
