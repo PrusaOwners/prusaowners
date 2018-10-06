@@ -8,8 +8,8 @@ This is a wiki for the Original Prusa printers created by Josef Prusa and any pr
 - [Original Prusa i3 MK2S kit assembly](https://manual.prusa3d.com/c/Original_Prusa_i3_MK2S_kit_assembly)
 - [Prusa Manuals and Guides](https://manual.prusa3d.com/c/English_manuals)
 ### Printer Specifications
-- [Prusa i3 MK3 Specifications]()
-- [MK3 Compatible Parts]()
+- [Prusa i3 MK3 Specifications](https://www.prusa3d.com/original-prusa-i3-mk3/)
+- [MK3 Compatible Parts](MK3_Compatible_Parts.md)
 ### Component Specifications
 - [EinsyRambo Specifications](https://reprap.org/wiki/EinsyRambo)
 - [TMC2130 Stepper Driver Datasheet](https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC2130_datasheet.pdf)
@@ -28,9 +28,9 @@ This is a wiki for the Original Prusa printers created by Josef Prusa and any pr
 - [Prusa Official Downloads Page](https://www.prusa3d.com/drivers/)
 ### Firmware
 - [Klipper](Klipper.md)
-- [Klipper MK3 Firmware G-Code Reference]()
+- [Klipper MK3 Firmware G-Code Reference](https://github.com/KevinOConnor/klipper/blob/master/docs/G-Codes.md)
 - [Prusa Official Firmware](https://github.com/prusa3d/Prusa-Firmware)
-- [Prusa Official MK3 Firmware G-Code Reference]()
+- [Prusa Official MK3 Firmware G-Code Reference](https://github.com/prusa3d/Prusa-Firmware/blob/MK3/Firmware/Marlin_main.cpp#L152)
 ### Slicing Software
 - [Slicer Profiles](Slicer_Profiles.md)
 - [Test Prints](Test_Prints.md)
