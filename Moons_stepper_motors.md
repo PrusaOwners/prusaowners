@@ -32,4 +32,14 @@ Alternatively, you can buy **pre-made cables with the JST (motor side) connector
 
 The Molex **crimp tool** is quite expensive, but several people, myself included have reported success with this **IWISS tool** available on [Amazon.com](https://www.amazon.com/gp/product/B00OMM4YUY/ref=oh_aui_search_detailpage?ie=UTF8&psc=1).
 
+The following table provides the length of the stock motor cable wires on the MK3. This is measured from the motor body to the start of the connector housing. If you plan on twisting the cable like those on the Prusa-supplied motors, make sure you do that before measuring.
+
+| Axis     | Length (mm) |
+|----------|-------------|
+| E        | 720         |
+| X        | 365         |
+| Y        | 510         |
+| Z (short)| 255         |
+| Z (long) | 555         |
+
 **One last thing** - If you're pretty sure you are going to keep the Moons motors, I recommend you pop the pins out of the connector on the LDO motor, and remove the little yellow plastic wire labels. Then you can put these on the new cables you make.
