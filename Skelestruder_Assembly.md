@@ -102,7 +102,7 @@ Refer to the following diagrams to identify the specific parts referenced in the
 
 | Part        | Variant + File Name                                                                     | PLA | HTPLA | PETG | Plate | Color      | Notes                                                             |
 |-------------|-----------------------------------------------------------------------------------------|-----|-------|------|-------|------------|-------------------------------------------------------------------|
-| E cage B    | SP_Ecage_B_b3a.stl                                                                   |     | Y     | Y    |       | User       |                                                                   |
+| E cage B    | SP_Ecage_B_b3a.stl                                                                   |     | Y     | Y    |       | User       | Use 2 perimeters                                                  |
 | E cage F    | SP_Ecage_F17_b2b.stl                                                                 |     | Y     | Y    |       | User       | Remove one ring support                                           |
 | Spider      | SP_spider14_b1.stl SP_spider17_b2.stl                                               | Y   |       |      |       | User       |                                                                   |
 | P rack      | SP_Prack_b3a.stl                                                                      |     | Y     | Y    |       | User       |                                                                   |
@@ -510,7 +510,8 @@ M913 - Print the currently set TMC2130 current values
 I wanted to make it so that you only need to make some gcode changes to operate. This is mostly true. Unfortunately, due to the shorter stack, the filament unload sequence assumes the wrong amount to unwind and doesn’t properly cool the hot bulb which can cause it to stick in cartridge. You can simply unscrew the cartridge and clip off the end to free it (handy trick of skelestruder). But if you do frequent filament swaps, this can be annoying. So best option is to modify the sequence in firmware. Since you are recompiling, might as well set the E steps to 980. Following is a patch file for MK3 3.3.1 you can apply or follow manually to make the changes.
 
 <a href="files/SPV1_3.3.1.patch">SPV1 3.3.1.patch</a>
-<a href="files/SPV1_3.4.0.RC2.patch">SPV1 3.4.0.RC2.patch</a>
+
+<a href="files/SPV1_3.4.0.patch">SPV1 3.4.0.patch</a>
 
 - changes E steps, motor current, filament load/unload
 
