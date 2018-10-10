@@ -43,6 +43,7 @@ This is a wiki for the Original Prusa printers created by Josef Prusa and any pr
 - [Cold Pull on MK3](Cold_Pull_on_MK3.md)
 - [gregsaun's maker cheatsheet](https://github.com/gregsaun/maker_cheatsheet)
 - [Manual print based PINDA temperature calibration](Manual_print_based_PINDA_temperature_calibration.md)
+- [First layer and PINDA temperature calibration with calipers](First_layer_and_PINDA_temperature_calibration_with_calipers.md)
 ### Mods and Improvements
 - [Bed Leveling with Wave Springs](Bed_Leveling_with_Wave_Springs.md)
 - [Bed Leveling without Wave Springs](Bed_Leveling_without_Wave_Springs.md)
