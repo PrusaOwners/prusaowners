@@ -176,4 +176,4 @@ Hit me on the discord @stahlfabrik or read the super long forum thread on the Pr
 Alternative Way to Measure Z Offsets
 ------------------------------------
 
-Discord user @motocoder has come up with an alternate way to measure the per-temperature z-offsets. This alternate approach is faster because it does not require test prints. See [PINDA Temperature Calibration with Electrical Continuity](PINDA_Temperature_Calibration_with_Electrical_Continuity "wikilink") for details.
+Discord user @motocoder has come up with an alternate way to measure the per-temperature z-offsets. This alternate approach is faster because it does not require test prints. See [PINDA Temperature Calibration with Electrical Continuity](PINDA_Temperature_Calibration_with_Electrical_Continuity.md "wikilink") for details.
