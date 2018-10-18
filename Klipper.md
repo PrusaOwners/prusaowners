@@ -89,22 +89,23 @@ Calibrating your Z-Endstop
 
 The Prusa i3 MK3 uses the Pinda probe as a Z-Endstop, and the endstop height needs to be calibrated prior to printing. Proceed with the following steps for initial calibration:
 
-1.  Set the following properties under \[stepper_z\] in your printer.cfg:
-        position_endstop: 0
+1.  Set the following properties under [stepper_z] in your printer.cfg:
+
         position_min: -2
+    and under [probe]:
+
+        z_offset: 0
 
 2.  Restart klipper from the shell to load the new config:
+
         sudo service klipper restart
 
     Alternatively, you can issue a restart command from Octoprint's terminal if you are connected.
 
 3.  Home the Z-axis using Octoprint.
-4.  Use Octoprint to move the Z-axis down in .1mm increments until the nozzle is just above the bed
+4.  Use Octoprint or the Printer Menu to move the Z-axis down in .1mm to .01mm increments until the nozzle is just above the bed
 5.  The current Z position will likely be somewhere between -0.4 and -1.0 It will be displayed on the printer, you can also retrieve the current position by issuing the GET_POSITION command in Octoprint's terminal.
-6.  The additive inverse of the current Z position will be your endstop position and probe offset. For example, if your Z position is -.6, enter the following under \[stepper_z\]:
-        position_endstop: .6
-
-    and under \[probe\]:
+6.  The absolute value of the current Z position will be your endstop position and probe offset. For example, if your Z position is -.6, enter the following under [probe]:
 
         z_offset: .6
 
@@ -157,29 +158,27 @@ You may also pull it from the PrusaOwners repo: <https://github.com/PrusaOwners/
 
 There are a few things to keep in mind with this implementation that may be subject to change:
 
-1.  Currently each probe point is only sampled once, unlike Prusa Firmware which samples twice. . After testing this doesn't seem to create an issue, as the Pinda produces fairly repeatable results. It is possible that other factors (such as movement of the axes) could influence results, so in the future efforts may be made to multi-sample probed points. Thus far “deadspots” in the bed appear to be due to changes in geometry with heat, not inaccurate sampling or Pinda drift.
+1.  By default each probe point is only sampled once, unlike Prusa Firmware which samples twice. After testing this doesn't seem to create an issue, as the Pinda produces fairly repeatable results. Functionality has been added to multi-sample points, with the tradeoff being that there is a small pause between samples unlike stock firmware.
 2.  <b>Those transitioning from ALPHA versions of bed_mesh should be aware of the following:</b>
-    1.  The probe_offset option of \[bed_mesh\] has now moved to the \[probe\] section as x_offset and y_offset.
-    2.  In the \[bed_mesh\] section probe_min and probe_max have been renamed to min_point and max_point.
+    1.  The probe_offset option of [bed_mesh] has now moved to the [probe] section as x_offset and y_offset.
+    2.  In the [bed_mesh] section probe_min and probe_max have been renamed to min_point and max_point.
     3.  G80 and G81 aliases are no longer hardcoded. Instructions for how to add aliases via gcode_macros are provided later in this document.
     4.  After probing the tool no longer returns to (0,0), as this is not suitable for every printer. This can be added in a gcode_macro or in your slicer's start gcode.
 
 ### Pre-requisites
 
-Before proceeding, make sure \[bed_tilt\] is not in your printer.cfg. It will present a conflict with Mesh Leveling. You also need \[probe\] in your printer.cfg:
+Before proceeding, make sure [bed_tilt] is not in your printer.cfg. It will present a conflict with Mesh Leveling. You also need [probe] in your printer.cfg:
 
     [probe]
     pin: PB4
     x_offset: 24.
     y_offset: 5.
-    z_offset: .67
+    z_offset: .0
     speed: 10.0
 
-The z_offset is the distance between the nozzle and the print surface when the probe triggers. Generally it should be set to the same value as your position_endstop under \[stepper_z\], the exceptions being with delta style printers and printers that home away from the print surface. The x_offset and y_offset options refer to the distance between the nozzle and the probe on their respective axis.
+The z_offset is the distance between the nozzle and the print surface when the probe triggers.  When a probe is used as an endstop for the z axis, the value for z_offset will be used as the endstop position.  Thus, if you have position_endstop in [stepper_z] defined, remove it.  The x_offset and y_offset options refer to the distance between the nozzle and the probe on their respective axis.
 
-It is also a good idea to make sure position_min under \[stepper_z\] is a negative number. Its likely that you will need to move below Z0 if your bed is significantly warped.
-
-Because Klipper requires that an axis is homed prior to movement, BED_MESH_CALIBRATE will automatically home first, so you should remove G28 from your start gcode and replace it with BED_MESH_CALIBRATE, or an alias should you choose to create one. This will home the printer and perform Mesh Leveling.
+It is also a good idea to make sure position_min under [stepper_z] is a negative number. Its likely that you will need to move below Z0 if your bed is significantly warped.
 
 Finally, I recommend adding a homing override to to home to the center of the bed:
 
@@ -207,6 +206,8 @@ Below is what a Mesh Bed Leveling configuration would look like with all options
     [bed_mesh]
     speed: 100
     horizontal_move_z: 5
+    samples: 1
+    sample_retract_dist: 2.0
     min_point: 11,1
     max_point: 215,193
     probe_count: 3,3
@@ -217,7 +218,6 @@ Below is what a Mesh Bed Leveling configuration would look like with all options
     mesh_pps: 2,2
     algorithm: lagrange
     bicubic_tension: .2
-    manual_probe: False
 
 Be aware that when dynamically generating points the distance between each point is calculated. If the distance is not a whole number, the value will be floored to the last hundredth. This will result in your maximum points being adjusted inward slightly. Also keep in mind that the min and max points refer to the position of the nozzle, not the probe. Make sure you do not choose points that will move the probe off of the bed.
 
@@ -230,6 +230,14 @@ The speed at which the bed is probed.
 -   horizontal_move_z:
 
 The distance to raise the toolhead between probes. Default is 5mm.
+
+-   samples:
+
+The number of samples to take for each probe point.
+
+-   sample_retract_dist:
+
+The distance to retract the tool between samples.  Only applies when samples > 1.
 
 -   min_point:
 
@@ -289,6 +297,10 @@ This will probe the bed, serialize the points, and send them to the terminal. No
 
 This will clear the mesh from memory. No further Z adjustment will be performed after a clear.
 
+    BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>
+
+BED_MESH_PROFILE can be used to save mesh state to persistent storage.  This isn't advised for MK3 users as bed geometry may not be consistent between prints, However users with rigid beds and glass surfaces may find this functionality useful.
+
 ### Generating Aliases
 
 To generate gcode aliases, the following can be added to your printer.cfg:
@@ -308,7 +320,7 @@ This will create G80 and G81 aliases respectively. Also, as you can see, the G80
 
 -   Generally probing a 3x3 grid with default mesh values will produce the desired result. However, one may wish to experiment with more probe points and different interpolation algorithms to eliminate deadspots. Lagrange interpolation tends to oscillate as the number of samples increase, so it is recommended to use bicubic interpolation for larger probe grids.
 
-\[Alpha\] Probe Temperature Compensation
+[Alpha] Probe Temperature Compensation
 ----------------------------------------
 
 Initial support has been added for probe temperature drift compensation. In its current form temperature compensation is configured manually, in a similar fashion to the method used in stock Prusa firmware. Without Encoder and Live-Z support this can be challenging, however it can be done with Octoprint.
@@ -364,7 +376,7 @@ After the wait completes, the printer will look up and apply the appropriate z a
 
     Adjust the above to your filament requirements. You may be able to move your nozzle closer to the bed when warming, but be careful as mesh leveling has not yet been applied to compensate for warped bed geometry. Also note that bed geometry changes as heat is applied.
 
-4.  Use Klipper's SET_GCODE_OFFSET Z_ADJUST=\[value\] to act in a similar manner to live-z. Note that positive and negative offsets can be mapped to buttons (see Octoprint's Custom Control Editor plugin). A z_adjust value of +/-.02 is a good place to start, continue adjusting until you have your desired first layer
+4.  Use Klipper's SET_GCODE_OFFSET Z_ADJUST=[value] to act in a similar manner to live-z. Note that positive and negative offsets can be mapped to buttons (see Octoprint's Custom Control Editor plugin). A z_adjust value of +/-.02 is a good place to start, continue adjusting until you have your desired first layer
 5.  Use GET_POSITION to get your total z_offset. Your output will look something like this:
         Send: GET_POSITION
         Recv: // mcu: x:-4778 y:-5497 z:-25
