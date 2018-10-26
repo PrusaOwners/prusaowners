@@ -24,7 +24,9 @@ This is a wiki for the Original Prusa printers created by Josef Prusa and any pr
 - [Original Josef Prusa i3/MK2/S/3 Owners](https://www.facebook.com/groups/Prusai3users/)
 - [Prusa Community Forum and Custom Mods](https://www.facebook.com/groups/prusacommunity/)
 - [Prusa I3 MK2/S/3 - FR (french)](https://www.facebook.com/groups/prusai3mk2s/)
+- [Haribo 3030 Upgrade](https://github.com/PrusaMK2Users/3030_Haribo_Edition/)
 - [Prusa i3 Bear Upgrade](https://www.facebook.com/groups/prusabearupgrade/)
+- [3d Printing Matttermost Server](https://3dprinting.community)
 
 
 ## Resources
