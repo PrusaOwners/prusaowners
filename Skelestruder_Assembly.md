@@ -62,15 +62,21 @@ Most of the parts of the skelestruder are 3D printed. One of the nice features o
 
 The material recommendations in the printed parts table are based on a mix of experience, expectations, strength, density, glass temp, etc. You can deviate. Let me know what you find. Remember, I am going for light so I want good stiffness/density. For example, motor spider needs to be stiff so I recommend PLA since it has a much higher modulus of elasticity. Here’s a table where I ranked various properties. Note that HT PLA needs to be annealed and it can shrink/distort during that process if you are not careful, leading to fitment issues.
 
-| Material | Weight | Stiffness | Stiffness / Weight | Glass Temperature | Detail Resolve | Environmental Friendliness | Post-processing | Ease of Printing |
+| Material | Weight | Stiffness | Stiffness / Weight | Deflection Temperature | Detail Resolve | Environmental Friendliness | Post-processing | Ease of Printing |
 |----------|--------|-----------|--------------------|-------------------|----------------|----------------------------|-----------------|------------------|
 | PLA (HT) | B      | A         | A                  | C (A)             | A              | A                          | A               | A                |
-| PET      | B      | C         | C+                 | B                 | B              | B                          | C               | B+               |
-| ABS      | A-     | C         | B-                 | A                 | D              | D                          | A               | C                |
-| Nylon    | A      | A         | A                  | C+                | ?              | D                          | ?               | D                |
+| PETG      | B      | C         | C+                 | B                 | B              | F                          | C               | B+               |
+| ABS      | A-     | C         | B-                 | A                 | D              | F                          | A               | C                |
+| Nylon    | A      | F         | F                 | A-                | B              | F                          | ?               | D                |
+| PETG-CF    | B      | A+         | A-                  | A+                | A-              | F                          | ?               | A-                |
+| Nylon-CF    | A-      | A+         | A+                  | A+                | A-              | F                          | ?               | A-                |
 ||
 
 Anecdotally, I have been testing all parts 100% PLA because I have a bunch of spools to burn through. I have had no problems. Others have also printed all parts in 100% PLA without any issues. Note that the extruder fan is blowing cool air over the lower portion the entire time, so very little is exposed to stagnant radiant heat, mainly the cooling nozzle and P rack. The cooling fan is on some even for PETG printing and P rack seems far enough away that I see no issues. I am not in an enclosure though.
+
+Nylon is too flexible to be used for anything structural - it can be used for the fan nozzle but there is no real advantage to doing so.
+
+Carbon fiber reinforced Nylon and PETG are both stiffer than PLA, have higher heat deflection temperatures than even ABS, and are incredibly low-warp and dimensionally stable.  Anecdotally, printing 100% in either of these gives the best results and noticeably reduces ghosting artifacts over PLA.  Highly recommended, just be aware of the effects of printing CF containing filaments on your nozzle first.
 
 I design parts to minimize unique slicer settings, changing orientation, and post-processing. Ideally just print and go. That said, some post-print dressing is helpful. Before starting, clean up parts where they interface, such as removing burrs and blobs. Pre-tap threads in these holes by fully screwing and unscrewing a screw (will make assembly easier):
 
