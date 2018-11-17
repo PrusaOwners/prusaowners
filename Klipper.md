@@ -316,6 +316,10 @@ To generate gcode aliases, the following can be added to your printer.cfg:
 
 This will create G80 and G81 aliases respectively. Also, as you can see, the G80 Macro moves the tool back to the origin after calibration. You can alter this GCode line to move it where you please at a speed that best suits your printer.
 
+### Pressure Advance
+
+The next thing you'll have to do is to configure _Pressura Advance_ (from this point downwards _PA_). Without _PA_ you will be getting ugly prints with blobs and curling at corners and lots of oozing. There is a [guide](https://github.com/KevinOConnor/klipper/blob/master/docs/Pressure_Advance.md) on how to configure _PA_ in the main Klipper repository, but it is convoluted and requires lots of manual steps. Read it through to understand what it is about, but don't actually follow it. We provide a setup process which is mode advanced and simpler at the same time, where you only have to print one test object from which you can derive the _PA_ value. The guide is [here](Pressure_Advance.md).
+
 ### Final Notes
 
 -   Generally probing a 3x3 grid with default mesh values will produce the desired result. However, one may wish to experiment with more probe points and different interpolation algorithms to eliminate deadspots. Lagrange interpolation tends to oscillate as the number of samples increase, so it is recommended to use bicubic interpolation for larger probe grids.
