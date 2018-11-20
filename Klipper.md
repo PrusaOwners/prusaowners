@@ -111,39 +111,30 @@ The Prusa i3 MK3 uses the Pinda probe as a Z-Endstop, and the endstop height nee
 
 7.  Restart Klipper again and you are ready to print. You may have to make slight changes to get a good first layer. Increasing the endstop position will bring the nozzle closer to the bed when printing, decreasing the endstop will raise it. Make sure you update both the endstop position and probe offset when making changes.
 
-Custom GCode Support
+Prusa GCode Support
 --------------------
 
-Currently the following custom gcodes are supported:
+Currently the following prusa specific gcodes are supported:
 
--   LOAD_FILAMENT
--   UNLOAD_FILAMENT
--   SET_BEEPER
+-   TIMED_GCODE
 -   TRAM_Z
 
 To enable these gcodes, add the following to your printer.cfg:
 
-    [custom_gcodes]
+    [prusa_gcodes]
 
-By default, LOAD_FILAMENT extrudes 95mm of filament, and UNLOAD_FILAMENT retracts 80mm of filament. You can set the amount of filament extruded or retracted with the LENGTH parameter:
+TIMED_GCODE allows the user to execute a gcode with a specific delay.  This is, for example, useful for resetting the display after a M117 message.  It is used in the following manner:
 
-    UNLOAD_FILAMENT LENGTH=70
+    TIMED_GCODE GCODE=M117 DELAY=5
 
-The minimum value for UNLOAD_FILAMENT is 45mm and LOAD_FILAMENT is 25mm.
+The example above will send an empty M117 with a delay of 5 seconds.  Note that if you want to execute a more complex gcode, spaces should be replaced underscores.  For example, if you want to send M117 Hello on a with a delay of 10 seconds, you could enter the following:
 
-To enable the beeper, add the following to your printer.cfg:
-
-    [output_pin beeper]
-    pin: PH2
-    value: 0
-
-The following command will turn on the beeper for 1.5 seconds:
-
-    SET_BEEPER DURATION=1.5
-
-The duration is always measured in seconds, and may be any floating point value above 0.
+     TIMED_GCODE GCODE=M117_Hello DELAY=5
 
 TRAM_Z functions in a manner similar to Prusa's Calibrate-Z functionality. It will use the TMC2130 driver to home to the top of the printer, then move an extra 10mm to “tram” the Z-Axis.
+
+Note for previous users:
+LOAD_FILAMENT, UNLOAD_FILAMENT, SET_BEEPER, and M900 have been deprecated.  It is recommend to use gcode macros to replace the functionality of these gcodes.
 
 Configuring Mesh Bed Leveling
 -----------------------------
@@ -307,6 +298,7 @@ To generate gcode aliases, the following can be added to your printer.cfg:
 
     [gcode_macro G80]
     gcode:
+     G28
      BED_MESH_CALIBRATE
      G1 X0 Y0 Z0.4 F4000
 
@@ -316,13 +308,20 @@ To generate gcode aliases, the following can be added to your printer.cfg:
 
 This will create G80 and G81 aliases respectively. Also, as you can see, the G80 Macro moves the tool back to the origin after calibration. You can alter this GCode line to move it where you please at a speed that best suits your printer.
 
-### Pressure Advance
-
-The next thing you'll have to do is to configure _Pressura Advance_ (from this point downwards _PA_). Without _PA_ you will be getting ugly prints with blobs and curling at corners and lots of oozing. There is a [guide](https://github.com/KevinOConnor/klipper/blob/master/docs/Pressure_Advance.md) on how to configure _PA_ in the main Klipper repository, but it is convoluted and requires lots of manual steps. Read it through to understand what it is about, but don't actually follow it. We provide a setup process which is mode advanced and simpler at the same time, where you only have to print one test object from which you can derive the _PA_ value. The guide is [here](Pressure_Advance.md).
-
 ### Final Notes
 
 -   Generally probing a 3x3 grid with default mesh values will produce the desired result. However, one may wish to experiment with more probe points and different interpolation algorithms to eliminate deadspots. Lagrange interpolation tends to oscillate as the number of samples increase, so it is recommended to use bicubic interpolation for larger probe grids.
+
+Bed Skew Correction:
+--------------------
+TODO (COMING SOON)
+
+Pressure Advance
+----------------
+
+The next thing you'll have to do is to configure _Pressure Advance_ (from this point downwards _PA_). Without _PA_ you will be getting ugly prints with blobs and curling at corners and lots of oozing. There is a [guide](https://github.com/KevinOConnor/klipper/blob/master/docs/Pressure_Advance.md) on how to configure _PA_ in the main Klipper repository, but it is complex and requires lots of manual steps. Read it through to understand what it is about, but don't actually follow it. We provide a setup process which is mode advanced and simpler at the same time, where you only have to print one test object from which you can derive the _PA_ value. The guide is [here](Pressure_Advance.md).
+
+
 
 [Alpha] Probe Temperature Compensation
 ----------------------------------------
@@ -350,13 +349,15 @@ The following gcodes are added with this module:
 
 This simply returns the probe's current temperature to octoprints terminal
 
-    PROBE_WAIT TEMP=<Target Temperature> DIRECTION=<heat| cool> TIMEOUT=<minutes>
+    PROBE_WAIT TEMP=<Target Temperature> TIMEOUT=<MINUTES>
 
-Use the gcode above to wait for the probe to reach a certain temperature. The minimum target is 25, maximum is 65. The direction tells the printer if you want to wait for the probe to cool or heat. This allows the printer to make checks to determine if the heaters are on or off. Note that 'up' can be used in place of 'heat' and 'down' can be used in place of 'cool'. Timeout sets a timeout in minutes. If the timeout is reached the printer will stop waiting and no changes will be made to the offset. A timeout value of 0 will wait indefinitely, which is the default value. The following command will wait for the Probe to heat to 40C with no timeout:
+Use the gcode above to wait for the probe to reach a certain temperature. The minimum target is 20, maximum is 70. The direction is automatically determined by the heater state.  If both heaters are off then the gcode will wait for the probe to cool to the supplied temperture, otherwise it will wait for it to heat.  Timeout sets a timeout in minutes. If the timeout is reached the printer will stop waiting and no changes will be made to the offset. A timeout value of 0 will wait indefinitely, which is the default value. 
 
-    PROBE_WAIT TEMP=40 DIRECTION=heat
+    APPLY_TEMP_OFFSET
 
-After the wait completes, the printer will look up and apply the appropriate z adjustment.
+The gcode above will look up the probe's current temperatue, calculate the offset to apply based on the supplied parameters, then adjust the gcode offset by that amount.
+
+
 
 ### Manual Calibration Procedure
 
