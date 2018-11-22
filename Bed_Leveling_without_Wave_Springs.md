@@ -1,3 +1,7 @@
+# Bed Leveling without Wave Springs
+
+> If your heated bed only has 6 screws holding it to the y-axis, this approach will not work. This is the case with Mk2.5 -> Mk3 upgrade kits.
+
 Having levelled my bed with wave springs (using the more common single wave springs) I got great results initially, but over time I had to keep adjusting due to thermal variation and so on, but to compensate for this I had to keep adjusting the screws downwards as the wave springs gradually lost their spring. After a couple of months I ended up with flat washers instead of wave springs, and thus decided to try this approach.
 
 The idea is to take out the reliance on a compressed spring, which will gradually lose it's un-sprung shape and tension, and instead make it a threaded adjustment. Basically instead of relying on a spring to push the bed up to the top of each screw, make it so the bed and screw are held together more tightly in the first place, and just use the thread to adjust the height more directly
@@ -6,24 +10,21 @@ The other benefit of this approach, is having a single fixed reference point. On
 
 By making the center point an absolute fixed reference, and adjusting other points around it, it actually makes the leveling process far easier and more intuitive.
 
-Unfortunately the standard Mesh bed levelling output is not relative to any single fixed point, adding to the usual confusion about what's actually changing. i.e. if you change one point on the bed the numbers for all points change, regardless of whether they actually move or not. By making a simple firmware change to make the mesh-levelling output have all points relative to the center (without actually affecting the levelling algorithm) bed levelling is far more intuitive. (This could also be accomplished by changing the plugin, which I will investigate, but I like to be able to use the numbers without the plugin, for more absolute values ... you can use the actual mm offset to determine how far to turn each screw, remembering that one full turn is 0.5mm)
+Unfortunately the standard Mesh bed leveling output is not relative to any single fixed point, adding to the usual confusion about what's actually changing. i.e. if you change one point on the bed the numbers for all points change, regardless of whether they actually move or not. By making a simple firmware change to make the mesh-leveling output have all points relative to the center (without actually affecting the leveling algorithm) bed leveling is far more intuitive. (This could also be accomplished by changing the plugin, which I will investigate, but I like to be able to use the numbers without the plugin, for more absolute values ... you can use the actual mm offset to determine how far to turn each screw, remembering that one full turn is 0.5mm)
 
-So ...
-
-Installation/Setup Procedure
-----------------------------
+## Installation/Setup Procedure
 
 Before starting you will need 8x M3 Nylock nuts (aka nylon lock nuts)
 
-1.  Move the Z axis to the top, to ensure it doesn't cause an obstruction
-2.  Ensure the heated bed and nozzle have cooled down
-3.  Turn off power to the printer
-4.  Remove the steel sheet from the heated bed
-5.  Remove all 9 screws from the heated bed, and set safely aside
-6.  Carefully lift the heated bed off the Y carriage, and rotate out of the way (optionally you may wish to disconnect the heated bed cables. It's probably safer to do this at the einsy end. Be particularly careful of the sensor cable)
-7.  Remove and store the metal spacers/standoffs
-8.  Put one of the M3 countersunk screws back into one of the holes in the perimeter of the heated bed
-9.  Optional: put a nylon M3 washer on the screw thread, on the underside of the bed. (I have not done this, so am not sure how this will affect levelling consistency, but it might make adjustment easier in theory)
+1. Move the Z axis to the top, to ensure it doesn't cause an obstruction
+2. Ensure the heated bed and nozzle have cooled down
+3. Turn off power to the printer
+4. Remove the steel sheet from the heated bed
+5. Remove all 9 screws from the heated bed, and set safely aside
+6. Carefully lift the heated bed off the Y carriage, and rotate out of the way (optionally you may wish to disconnect the heated bed cables. It's probably safer to do this at the einsy end. Be particularly careful of the sensor cable)
+7. Remove and store the metal spacers/standoffs
+8. Put one of the M3 countersunk screws back into one of the holes in the perimeter of the heated bed
+9. Optional: put a nylon M3 washer on the screw thread, on the underside of the bed. (I have not done this, so am not sure how this will affect leveling consistency, but it might make adjustment easier in theory)
 10. Put one of the Nylock nuts onto the thread of the nut, on the underside of the bed, making sure of the orientation of the nut (the end with the white nylon visible goes away from the bed, most visible)
 11. Tighten the Nylock nut and screw, using an allen-key/hex-wrench and a 5.5mm wrench or socket
 12. Tighten until the nylock nut just starts to bite down against the bed, so the screw does not turn freely without the nut being held, then back the nut off a tiny amount (1/16th turn or less) so that the screw can be turned, but is not loose
@@ -41,26 +42,25 @@ Before starting you will need 8x M3 Nylock nuts (aka nylon lock nuts)
 24. The bed should now be roughly level (probably VERY roughly, don't expect good numbers yet)
 25. Reconnect the heatbed cables if they were disconnected previously.
 26. Install the steel sheet on the heatbed
-27. Turn on the printer, and run the first mesh bed levelling with the heatbed cold.
+27. Turn on the printer, and run the first mesh bed leveling with the heatbed cold.
 
 Hopefully this photo, showing the front-center screw, with the center spacer visible behind it, might help make this a little clearer: -
 
 ![](images/Bed_levelling.jpg "images/Bed_levelling.jpg")
 
-Leveling Procedure
-------------------
+## Leveling Procedure
 
 After initial installation I would suggest first leveling with the bed at ambient temperature, since you should be able to get it fairly flat at ambient, and then only see minor variation when heated. You can then make fine adjustments at your usual bed temperature to get the best level possible.
 
-I also strongly suggest using the firmware tweak below, in order to make the mesh-leveling command (G81) output have all points relative to the fixed center. This makes levelling much more intuitive. It's often easier to get a close level using the actual numbers, rather than the mesh-leveling plugin, since you can work out from the numbers roughly how far each screw needs to be rotated (there will be some variation partly due to slop between the screw thread and the thread in the Y carriage threads)
+I also strongly suggest using the firmware tweak below, in order to make the mesh-leveling command (`G81`) output have all points relative to the fixed center. This makes leveling much more intuitive. It's often easier to get a close level using the actual numbers, rather than the mesh-leveling plugin, since you can work out from the numbers roughly how far each screw needs to be rotated (there will be some variation partly due to slop between the screw thread and the thread in the Y carriage threads)
 
 ### Steps using terminal/numbers
 
-1.  Type G80 into the terminal (whether using Octoprint, or a serial terminal with the einsy connected to PC)
-2.  Wait for the mesh leveling to complete
-3.  Type G81 into the serial terminal
+1. Type `G80` into the terminal (whether using Octoprint, or a serial terminal with the einsy connected to PC)
+2. Wait for the mesh leveling to complete
+3. Type `G81` into the serial terminal
 
-You should see output something like: -
+You should see output something like:
 
 |              |          |          |              |          |          |              |
 |--------------|----------|----------|--------------|----------|----------|--------------|
@@ -82,7 +82,7 @@ Adjust all 8 perimeter screws by roughly the amount indicated in the first pass.
 
 Repeat the calibration steps above, making finer and finer adjustments each time.
 
-Once you're within say 0.05mm, you may wish to switch to doing the calibration with the bed at your normal printing temperature (e.g.: 60deg C)
+Once you're within say 0.05mm, you may wish to switch to doing the calibration with the bed at your normal printing temperature (e.g.: 60&deg;C)
 
 Repeat until the level is within 0.05mm. You can probably get the level to around 0.02mm variation fairly easily, and with a little patience even closer (but don't get too obsessed,as you'll see little real benefit from your effort if trying to strive for perfection)
 
@@ -96,22 +96,19 @@ Hopefully you might be able to end up with numbers more like these (not actually
 | **-0.00333** | -0.00343 | -0.00231 | **0**        | 0.00352  | 0.00624  | **0.00817** |
 | -0.00204     | -0.00297 | -0.00245 | -0.00046     | 0.00298  | 0.00789  | 0.00826     |
 | -0.00065     | -0.00294 | -0.00344 | -0.00213     | 0.00098  | 0.00588  | 0.00659     |
-| *' 0.00083*' | -0.00333 | -0.00528 | **-0.00500** | -0.00250 | 0.00222  | **0.00617** |
+| **0.00083** | -0.00333 | -0.00528 | **-0.00500** | -0.00250 | 0.00222  | **0.00617** |
 
 ### Using Octoprint Plugin
 
 TBC
 
-Firmware Tweak
---------------
+## Firmware Tweak
 
-In order to make the output be center-relative, without changing the actual compensation algorithm, I simply made the terminal output center-relative, without touching anything else
+In order to make the output be center-relative, without changing the actual compensation algorithm, I simply made the terminal output center-relative, without touching anything else.
 
-in marlin_main.cpp search for “G81”
+In marlin_main.cpp search for `G81` and make the following additions:
 
-and make the following additions (highlighted in bold)
-
-```
+```cpp
        /**
         * G81: Print mesh bed leveling status and bed profile if activated
         */
@@ -139,4 +136,4 @@ and make the following additions (highlighted in bold)
            break;
 ```
 
-Compile the firmware changes, and flash to the Mk3. You should now always see the center point in the G81 output be 0.0
+Compile the firmware changes, and flash to the Mk3. You should now always see the center point in the `G81` output be 0.0
