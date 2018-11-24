@@ -48,5 +48,5 @@ Electrical Components
 
 | Part Name | Used In / Description | Specification | Manufacturer Part Number | Source / Source Part Number |
 |-----------|-----------------------|---------------|--------------------------|-----------------------------|
-| Delta PSU 24V 320W | Compatible PSU for MK3 | 24V 320W | Delta PMF-24V320WCGB | [Delta website](http://www.deltapsu.com/products/panel-mount-power-supply/PMF-24V320WCGB) |
-| Mean Well PSU 24V 350W | Compatible PSU for MK3| 24V 350W | Mean Well LRS-350-24 | [Mean Well website](https://www.meanwell.com/webapp/product/search.aspx?prod=LRS-350) |
+| Delta PSU 24V 320W | Compatible PSU for MK3 | 24V 320W | Delta PMF-24V320WCAB | [Delta website](http://www.deltapsu.com/products/panel-mount-power-supply/PMF-24V320WCGB) |
+| Mean Well PSU 24V 320W | Compatible PSU for MK3| 24V 320W | Mean Well SP-320-24 | [Mean Well website](https://www.meanwell.com/webapp/product/search.aspx?prod=SP-320) |
