@@ -50,3 +50,17 @@ Electrical Components
 |-----------|-----------------------|---------------|--------------------------|-----------------------------|
 | Delta PSU 24V 320W | Compatible PSU for MK3 | 24V 320W | Delta PMF-24V320WCAB | [Delta website](http://www.deltapsu.com/products/panel-mount-power-supply/PMF-24V320WCGB) |
 | Mean Well PSU 24V 320W | Compatible PSU for MK3| 24V 320W | Mean Well SP-320-24 | [Mean Well website](https://www.meanwell.com/webapp/product/search.aspx?prod=SP-320) |
+
+
+### Power Cables and Connectors
+
+Always get known brand from reliable source for those parts, they are critical and might be dangerous if not correctly manufactured.
+
+| Part Name | Used In / Description | Specification | Manufacturer Part Number | Source / Source Part Number |
+|-----------|-----------------------|---------------|--------------------------|-----------------------------|
+| 115/230 VAC Cables | PSU | 16 AWG or 1.5mm<sup>2</sup> | | | |
+| 12/24 VDC Cables | PSU to Rambo/Einsy | 14 AWG or 2mm<sup>2</sup> | | | |
+| Terminal Quick Connects Connector | Power plug, Power switch | -   16 AWG<br>-   Tab width: 6.35mm (according to your power plug and switch connectors)<br>-   Fully insulated | | [Digikey](https://www.digikey.com/products/en/connectors-interconnects/terminals-quick-connects-quick-disconnect-connectors/392?k=&pkeyword=&pv1048=20&sf=0&FV=fff40016%2Cfff8041a%2C740002%2C1380087%2C13800b1%2C1380004%2C1380236%2C170000c%2C1700004%2C1700007%2C1f140000%2Cffe00188%2Cfffc0115&quantity=&ColumnSort=0&page=1&pageSize=25) |
+| Terminal Spade Connector 115/230 VAC | PSU (115/230 VAC) | -   16 AWG<br>-   Flanged terminal type<br>-   #6 Stud/Tab size<br>-   Insulated<br>-   Spade width: 6.35 to 8mm | | [Digikey](https://www.digikey.com/products/en/connectors-interconnects/terminals-spade-connectors/391?k=&pkeyword=&pv78=191&sf=0&FV=fff40016%2Cfff80419%2C1700004%2C4a800ff%2C4ac003b%2Cf88001e%2Cf880024%2Cf88017b%2Cf880185%2Cf880186%2C1f140000%2Cffe00187%2C1380086%2C13800bf&quantity=&ColumnSort=0&page=1&pageSize=25) |
+| Terminal Spade Connector 12/24 VDC | PSU (12/24 VDC), Rambo/Einsy | -   14 AWG<br>-   Flanged terminal type<br>-   #6 Stud/Tab size<br>-   Insulated<br>-   Spade width: 6.35 to 8mm | | [Digikey](https://www.digikey.com/products/en/connectors-interconnects/terminals-spade-connectors/391?k=&pkeyword=&pv994=30&pv994=36&pv994=389&pv994=379&pv994=390&sf=0&FV=fff40016%2Cfff80419%2C1380086%2C13800be%2C1380239%2C1700004%2C4a800ff%2C4ac003b%2C1f140000%2Cffe00187&quantity=&ColumnSort=0&page=1&pageSize=25) |
+| Terminal Ring Connector | Heated bed | -   14 AWG<br>-   M3 Stud/Tab size<br>-   Insulated<br>-   Spade width: 6.35 to 8mm | | [Digikey](https://www.digikey.com/products/en/connectors-interconnects/terminals-ring-connectors/394?k=&pkeyword=&pv299=178&sf=0&FV=fff40016%2Cfff8041c%2C1380086%2C13800be%2C1380003%2C1380211%2Cffe0018a%2C1700004%2C1f140000&quantity=&ColumnSort=0&page=1&pageSize=25) |
