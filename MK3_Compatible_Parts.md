@@ -17,8 +17,8 @@ Electrical Components
 
 | Part Name | Used In / Description | Manufacture Part Number | Source / Source Part Number |
 |-----------|-----------------------|-------------------------|-----------------------------|
-| Stepper motor (X/Y/E) | Stepper motors used on X and Y axis, and on extruder | [LDO Motors: LDO-42STH38-1004A](https://github.com/PrusaOwners/prusa_docs/blob/master/mk3_parts/LDO-42STH38-1004A100CM-RevA-for-3D.pdf)         | ?                           |
-| Stepper motor (Z)     | Stepper motors used on Z axis                        | [LDO Motors: LDO-42STH34-1004L321E](https://github.com/PrusaOwners/prusa_docs/blob/master/mk3_parts/LDO-42STH34-1004L321E100CM-RevA-for-3D.pdf) | ?                           |
+| X,Y,E stepper motor | X, Y, E axis | -  [LDO XYE motor drawing](https://github.com/PrusaOwners/prusa_docs/blob/master/mk3_parts/LDO-42STH38-1004A100CM-RevA-for-3D.pdf)<br>-  [LDO XYE motor specs](https://github.com/PrusaOwners/prusa_docs/blob/master/mk3_parts/LDO_XYE_complete_datasheet.ods)         | LDO-42STH38-1004A100CM-RevA-for-3D |
+| Z stepper motor     | Z axis                        | - [LDO Z motor drawing](https://github.com/PrusaOwners/prusa_docs/blob/master/mk3_parts/LDO-42STH34-1004L321E100CM-RevA-for-3D.pdf)<br>- [LDO Z motor specs](https://github.com/PrusaOwners/prusa_docs/blob/master/mk3_parts/LDO_Z_complete_datasheet.ods) | LDO-42STH34-1004L321E100CM-RevA-for-3D |
 
 
 ### Fans and Blowers
