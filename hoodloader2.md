@@ -14,21 +14,22 @@ Caveats
 
 Installing Hoodloader2
 -----------------------
-There are two methods that can be used to install Hoodloader2 on an Einsy rambo, both will be covered in this document.  However first you will need to clone the Hoodloader2 on your local machine:
+Hoodloader2 may be installed by using an Arduino Uno, or via progammer.  Both methods are covered in this document.
 
-```git clone https://github.com/NicoHood/HoodLoader2.git```
-
-Method 1: Installing using an Arduino Uno
+Install Method 1:  Arduino Uno
 ------------------------------
-This method uses an installation sketch uploaded to a secondary Arduino to flash the Atmega 32u2.  This method outlines how to use an Uno, however other Arduino's, such as a Nano, should work.  You will need 3 dupont male to female jumpers, and 3 dupont female to female jumpers.
+This method uses an installation sketch uploaded to an Arduino to flash the Einsy's Atmega 32u2.  While this document covers how to use an Arduino Uno, other Arduino's such as a Nano should work.  You will need 3 dupont male to female jumpers, and 3 dupont female to female jumpers.
 
 1) Download the latest version of the Arduino IDE.
-2) Open the sketch in the Hoodloader2 repo located at `/avr/examples/Installation_Sketch/Installation_Sketch.ino`
-3) Change line 11 to the following:
+2) Clone the Hoodloader2 git repository:
+`git clone https://github.com/NicoHood/HoodLoader2.git`
+3) Open the sketch in the Hoodloader2 repo located at:
+`/avr/examples/Installation_Sketch/Installation_Sketch.ino`
+4) Change line 11 to the following:
 `#define HEXFILE HEXFILE_HoodLoader2_0_5_Mega_atmega32u2_hex`
-4) Save and upload the sketch to your Uno
-5) Disconnect your Einsy from USB and Power.  Disconnect your Uno from USB.
-6) Use the following diagram to make your connections:
+5) Save and upload the sketch to your Uno.
+6) Disconnect your Einsy from USB and Power.  Disconnect your Uno from USB.
+7) Use the following diagram to make your connections:
 ![<File:einsy> uno.png](images/einsy_uno.png "File:einsy_uno.png")
 
 | Uno Pin | Einsy ICSP Pin | Color |
@@ -40,19 +41,19 @@ This method uses an installation sketch uploaded to a secondary Arduino to flash
 | Pin 10  | Pin 5 (Reset)| Purple |
 | Ground | Pin 6 (Ground) | Black |
 
-7) Connect your secondary Arduino to your PC via USB.  Open the Arduino IDE's serial console at 115200 baud.  Watch as the firmware upload completes.
-8) Disconnect everything.  Connect power and USB back to your Einsy.  Run the following command if connected to a linux based system such as a Raspberry Pi:
+8) Connect your secondary Arduino to your PC via USB.  Open the Arduino IDE's serial console at 115200 baud.  Watch as the firmware upload completes.
+9) Disconnect everything.  Connect power and USB back to your Einsy.  Run the following command if connected to a linux based system such as a Raspberry Pi:
 `ls /dev/serial/by-id/`
 The output should be:
 `usb-NicoHood_HoodLoader2_Mega-if00`
-9) You are now ready to print with improved communication stability.
+10) You are now ready to print with improved communication stability.
 
-Method 2: Installing using a programmer
+Install Method 2: Programmer
 ----------------------------------------
 602 Wasteland community leader Zbrozek has contributed a simple method for programming with a USBasp.
 
 1) Disconnect USB and Power from the Einsy
-2) Connect the USBasp:
+2) Connect the USBasp to the Einsy:
 
 | USBasp | | Einsy ICSP|
 |--------|-|-----------|
