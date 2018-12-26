@@ -61,6 +61,7 @@ Method 2: Installing using a programmer
 | Pin 5 | Reset  | Pin 5 |
 | Pin 7 | SCK | Pin 3 |
 | Pin 9 | MISO | Pin 1|
+
 You may also refer to the image in the previous section to see the pinout for the Einsy's 32u2 ICSP header.
 
 3) Run the following commands:
@@ -69,8 +70,11 @@ You may also refer to the image in the previous section to see the pinout for th
 wget https://raw.githubusercontent.com/NicoHood/HoodLoader2/master/avr/bootloaders/HexFiles/HoodLoader2_0_5_Mega_atmega32u2.hex
 avrdude -c usbasp -p m32u2 -U lfuse:w:0xEF:m -U hfuse:w:0xD8:m -U efuse:w:0xFC:m -U flash:w:HoodLoader2_0_5_Mega_atmega32u2.hex:i
 ```
-
-
 Presumably this can be adapted to other programmers by changing the avrdude command.
 
+4) Disconnect everything.  Connect power and USB back to your Einsy.  Run the following command if connected to a linux based system such as a Raspberry Pi:
+`ls /dev/serial/by-id/`
+The output should be:
+`usb-NicoHood_HoodLoader2_Mega-if00`
+5) You are now ready to print with improved communication stability.
 
