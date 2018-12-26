@@ -15,6 +15,7 @@ Caveats
 Installing Hoodloader2
 -----------------------
 There are two methods that can be used to install Hoodloader2 on an Einsy rambo, both will be covered in this document.  However first you will need to clone the Hoodloader2 on your local machine:
+
 ```git clone https://github.com/NicoHood/HoodLoader2.git```
 
 Method 1: Installing using an Arduino Uno
