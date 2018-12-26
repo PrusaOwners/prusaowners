@@ -22,13 +22,10 @@ This method uses an installation sketch uploaded to an Arduino to flash the Eins
 
 1) Download the latest version of the Arduino IDE.
 2) Clone the Hoodloader2 git repository:
-
 `git clone https://github.com/NicoHood/HoodLoader2.git`
 3) Open the sketch in the Hoodloader2 repo located at:
-
 `/avr/examples/Installation_Sketch/Installation_Sketch.ino`
 4) Change line 11 to the following:
-
 `#define HEXFILE HEXFILE_HoodLoader2_0_5_Mega_atmega32u2_hex`
 5) Save and upload the sketch to your Uno.
 6) Disconnect your Einsy from USB and Power.  Disconnect your Uno from USB.
