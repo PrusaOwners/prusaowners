@@ -519,6 +519,8 @@ I wanted to make it so that you only need to make some gcode changes to operate.
 
 <a href="files/SPV1_3.4.0.patch">SPV1 3.4.0.patch</a>
 
+<a href="files/SPV1_3.5.1.patch">SPV1 3.5.1.patch</a>
+
 - changes E steps, motor current, filament load/unload
 
 - adds nozzle only pre-heat to menu, fixes variable type for clean compile with latest Arduino
