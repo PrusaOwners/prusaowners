@@ -1,0 +1,99 @@
+diff --git a/Firmware/Marlin_main.cpp b/Firmware/Marlin_main.cpp
+index c5fc302..7e0a21c 100644
+--- a/Firmware/Marlin_main.cpp
++++ b/Firmware/Marlin_main.cpp
+@@ -3083,7 +3083,7 @@ void gcode_M701()
+ 		st_synchronize();
+ 
+ 		if (current_position[Z_AXIS] < 20) current_position[Z_AXIS] += 30;
+-		current_position[E_AXIS] += 30;
++		current_position[E_AXIS] += 20;
+ 		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 400 / 60, active_extruder); //fast sequence
+ 		
+ 		load_filament_final_feed(); //slow sequence
+diff --git a/Firmware/ultralcd.cpp b/Firmware/ultralcd.cpp
+index b675a1f..f8a73c0 100644
+--- a/Firmware/ultralcd.cpp
++++ b/Firmware/ultralcd.cpp
+@@ -2087,6 +2087,7 @@ static void lcd_preheat_menu()
+ 	  MENU_ITEM_FUNCTION_P(PSTR("HIPS -  " STRINGIFY(HIPS_PREHEAT_HOTEND_TEMP) "/" STRINGIFY(HIPS_PREHEAT_HPB_TEMP)), lcd_preheat_hips);
+ 	  MENU_ITEM_FUNCTION_P(PSTR("PP   -  " STRINGIFY(PP_PREHEAT_HOTEND_TEMP) "/" STRINGIFY(PP_PREHEAT_HPB_TEMP)), lcd_preheat_pp);
+ 	  MENU_ITEM_FUNCTION_P(PSTR("FLEX -  " STRINGIFY(FLEX_PREHEAT_HOTEND_TEMP) "/" STRINGIFY(FLEX_PREHEAT_HPB_TEMP)), lcd_preheat_flex);
++    MENU_ITEM_FUNCTION_P(PSTR("nozzle -  " STRINGIFY(FARM_PREHEAT_HOTEND_TEMP) "/0"), lcd_preheat_farm_nozzle);
+ 	  if (!wizard_active) MENU_ITEM_FUNCTION_P(_T(MSG_COOLDOWN), lcd_cooldown);
+   }
+   
+@@ -5402,11 +5403,11 @@ void unload_filament()
+ 
+ 	//		extr_unload2();
+ 
+-	current_position[E_AXIS] -= 45;
++	current_position[E_AXIS] -= 32;
+ 	plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 5200 / 60, active_extruder);
+ 	st_synchronize();
+-	current_position[E_AXIS] -= 15;
+-	plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 1000 / 60, active_extruder);
++  current_position[E_AXIS] -= 10;
++  plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 100 / 60, active_extruder);
+ 	st_synchronize();
+ 	current_position[E_AXIS] -= 20;
+ 	plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], 1000 / 60, active_extruder);
+@@ -7478,4 +7479,3 @@ void menu_lcd_lcdupdate_func(void)
+ 	lcd_send_status();
+ 	if (lcd_commands_type == LCD_COMMAND_V2_CAL) lcd_commands();
+ }
+-
+diff --git a/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h b/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h
+index 4655107..1c8d11a 100644
+--- a/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h
++++ b/Firmware/variants/1_75mm_MK3-EINSy10a-E3Dv6full.h
+@@ -35,7 +35,7 @@
+ 
+ // Steps per unit {X,Y,Z,E}
+ //#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,140}
+-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,280}
++#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,980}
+ //#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,560}
+ 
+ // Endstop inverting
+@@ -61,7 +61,7 @@
+ #define X_MIN_POS 0
+ #define Y_MAX_POS 212.5
+ #define Y_MIN_POS -4 //orig -4
+-#define Z_MAX_POS 210
++#define Z_MAX_POS 220
+ #define Z_MIN_POS 0.15
+ 
+ // Canceled home position
+@@ -86,10 +86,10 @@
+  */
+ #define SHEET_PRINT_ZERO_REF_Y -2.f
+ 
+-#define DEFAULT_MAX_FEEDRATE                {200, 200, 12, 120}      // (mm/sec)   max feedrate (M203)
++#define DEFAULT_MAX_FEEDRATE                {400, 400, 12, 320}      // (mm/sec)   max feedrate (M203)
+ #define DEFAULT_MAX_FEEDRATE_SILENT         {100, 100, 12, 120}      // (mm/sec)   max feedrate (M203), silent mode
+ 
+-#define DEFAULT_MAX_ACCELERATION            {1000, 1000, 200, 5000}  // (mm/sec^2) max acceleration (M201)
++#define DEFAULT_MAX_ACCELERATION            {4000, 1000, 200, 5000}  // (mm/sec^2) max acceleration (M201)
+ #define DEFAULT_MAX_ACCELERATION_SILENT     {960, 960, 200, 5000}    // (mm/sec^2) max acceleration (M201), silent mode
+ 
+ 
+@@ -255,8 +255,8 @@
+ #define TMC2130_SG_THRS_E       3     // stallguard sensitivity for E axis
+ 
+ //new settings is possible for vsense = 1, running current value > 31 set vsense to zero and shift both currents by 1 bit right (Z axis only)
+-#define TMC2130_CURRENTS_H {16, 20, 35, 30}  // default holding currents for all axes
+-#define TMC2130_CURRENTS_R {16, 20, 35, 30}  // default running currents for all axes
++#define TMC2130_CURRENTS_H {20, 20, 35, 26}  // default holding currents for all axes
++#define TMC2130_CURRENTS_R {20, 20, 35, 26}  // default running currents for all axes
+ #define TMC2130_UNLOAD_CURRENT_R 12			 // lowe current for M600 to protect filament sensor 
+ 
+ #define TMC2130_STEALTH_Z
+@@ -610,6 +610,7 @@
+ #define M600_TIMEOUT 600  //seconds
+ 
+ //#define SUPPORT_VERBOSITY
++#define DEBUG_DISABLE_FORCE_SELFTEST //disable force selftest 
+ 
+ #define MMU_REQUIRED_FW_BUILDNR 83
+ #define MMU_HWRESET
