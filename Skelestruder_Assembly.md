@@ -1,3 +1,5 @@
+### Note: these are deprecated.  Please see [Dozuki instructions](https://www.ifixit.com/Device/Skelestruder_for_Prusa_MK3)
+
 SPV1 (b3.1)
 ===========
 
