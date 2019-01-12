@@ -12,6 +12,26 @@ Caveats
 
 * Your Einsy will no longer enumerate using Prusa's Vendor and Product IDs.  It will show up as either "Hoodloader2 Mega" or as "Arduino Mega", depending on your platform.
 
+* You will need a programmer to flash back to a standard DFU-usbserial setup.  However an Arudino can be flashed to work as a programmer without much of an issue.
+
+Recommended - Record the serial number for your Prusa Einsy
+-----------------------------------------------------------
+Just in case you want to keep it.  With your MK3 powered on and connected to a Pi, ssh into the Pi and enter the following command:
+
+```dmesg | grep usb```
+
+Your output should look something like the below:
+
+```script
+[71569.010832] usb 1-1.4: new full-speed USB device number 10 using dwc_otg
+[71569.155624] usb 1-1.4: New USB device found, idVendor=2c99, idProduct=0002
+[71569.155639] usb 1-1.4: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[71569.155648] usb 1-1.4: Product: Original Prusa i3 MK3
+[71569.155657] usb 1-1.4: Manufacturer: Prusa Research (prusa3d.com)
+[71569.155665] usb 1-1.4: SerialNumber: ALPHANUMERIC123
+```
+Record and save whatever is in the Serial Number Field.
+
 Installing Hoodloader2
 -----------------------
 Hoodloader2 may be installed by using an Arduino Uno, or via progammer.  Both methods are covered in this document.
