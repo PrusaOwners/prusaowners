@@ -102,6 +102,10 @@ Hopefully you might be able to end up with numbers more like these (not actually
 
 TBC
 
+### Using g81_relative script
+
+You can also use https://pcboy.github.io/g81_relative/ to convert the absolute values to relative ones. Simply paste the values you get from the g81 command in Octoprint in the first text area and you'll get relative values in the bottom text area.
+
 ## Firmware Tweak
 
 In order to make the output be center-relative, without changing the actual compensation algorithm, I simply made the terminal output center-relative, without touching anything else.
