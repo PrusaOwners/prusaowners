@@ -326,7 +326,7 @@ The next thing you'll have to do is to configure _Pressure Advance_ (from this p
 [Alpha] Probe Temperature Compensation
 ----------------------------------------
 
-Initial support has been added for probe temperature drift compensation. In its current form temperature compensation is configured manually, in a similar fashion to the method used in stock Prusa firmware. Without Encoder and Live-Z support this can be challenging, however it can be done with Octoprint.
+Initial support has been added for probe temperature drift compensation. In its current form temperature compensation is configured manually, in a similar fashion to the method used in stock Prusa firmware.
 
 To enabled Probe temperature support, add the following to your printer.cfg:
 
@@ -349,7 +349,7 @@ The following gcodes are added with this module:
 
 This simply returns the probe's current temperature to octoprints terminal
 
-    PROBE_WAIT TEMP=<Target Temperature> TIMEOUT=<MINUTES>
+    PROBE_WAIT TEMP=<Target Temperature> TIMEOUT=<SECONDS>
 
 Use the gcode above to wait for the probe to reach a certain temperature. The minimum target is 20, maximum is 70. The direction is automatically determined by the heater state.  If both heaters are off then the gcode will wait for the probe to cool to the supplied temperture, otherwise it will wait for it to heat.  Timeout sets a timeout in minutes. If the timeout is reached the printer will stop waiting and no changes will be made to the offset. A timeout value of 0 will wait indefinitely, which is the default value. 
 
