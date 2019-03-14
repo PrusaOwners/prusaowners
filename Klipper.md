@@ -418,3 +418,78 @@ Currently the gcode doesn't actually calibrate the sensor. It gathers temperatur
 When calibration is complete (or times out) data will be dumped to ~/PindaTemps.json. It is useful to calibrate at the default position (center standoff) and one other position such as X50 Y50, up to a target temp of 55 to 60C. To reach these probe temperatures it is recommended to heat the extruder to a minimum 235C and the Bed to 90C.
 
 If you are interested in collecting data, please visit the \#mk3-klipper channel on the Prusa3d-Users discord server.
+
+Filament Sensors
+----------------
+
+The MK3 and MK3 both have filament sensor, but they used a different sensor, here is how you update your printer.cfg to use one or the other.
+
+### MK3 Filament Sensor (pat9125)
+
+
+    [pat9125 fsensor]
+    pause_on_runout: True
+    insert_gcode:
+        M118 Filament Load Detected
+        LOAD_FILAMENT
+    runout_gcode:
+        M118 Filament Runout Detected
+        M600 X250 Y-3 Z10
+    invert_axis: True
+    oq_enable: True
+
+### MK3S Filament Sensor
+
+    [filament_switch_sensor fsensor]
+    pause_on_runout: True
+    runout_gcode:
+        M118 Filament Runout Detected
+        M600 X250 Y-3 Z10
+    insert_gcode:
+        M118 Filament Load Detected
+        LOAD_FILAMENT
+    event_delay: 3.0
+    switch_pin: !PK0
+
+### Common configuration for both
+
+[respond]
+default_type: command
+
+[pause_resume]
+
+[gcode_macro M600]
+default_parameter_X: 100
+default_parameter_Y: 0
+default_parameter_Z: 10
+gcode:
+ PAUSE
+ G91
+ G1 E-.8 F2700
+ G1 Z{Z}
+ G90
+ G1 X{X} Y{Y} F3000
+
+[gcode_macro LOAD_FILAMENT]
+gcode:
+ M117 Loading Filament...
+ G1 E70 F400
+ G1 E40 F100
+ G92 E0.0
+ M400
+ M117 Load Complete
+
+[gcode_macro UNLOAD_FILAMENT]
+gcode:
+ M117 Unloading Filament...
+ G1 E0.5 F1000
+ G1 E-0.5 F1000
+ G1 E1.0 F1000
+ G1 E-1.0 F1000
+ G1 E1.5 F1000
+ G1 E-1.5 F1000
+ G1 E2.0 F1000
+ G1 E-100 F3000
+ M400
+ M117 Remove Filament Now!
+ M300 S300 P1000
