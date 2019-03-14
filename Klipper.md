@@ -422,19 +422,18 @@ If you are interested in collecting data, please visit the \#mk3-klipper channel
 Filament Sensors
 ----------------
 
-The MK3 and MK3 both have filament sensor, but they used a different sensor, here is how you update your printer.cfg to use one or the other.
+The MK3 and MK3 both have a filament sensor, but they each use a different sensor. Update your printer.cfg with either of the sections below, then add/update the common sections to your printer.cfg
 
 ### MK3 Filament Sensor (pat9125)
 
-
     [pat9125 fsensor]
     pause_on_runout: True
-    insert_gcode:
-        M118 Filament Load Detected
-        LOAD_FILAMENT
     runout_gcode:
         M118 Filament Runout Detected
         M600 X250 Y-3 Z10
+    insert_gcode:
+        M118 Filament Load Detected
+        LOAD_FILAMENT
     invert_axis: True
     oq_enable: True
 
@@ -453,43 +452,62 @@ The MK3 and MK3 both have filament sensor, but they used a different sensor, her
 
 ### Common configuration for both
 
-[respond]
-default_type: command
+You will need to add the following sections to you printer config in order for the M600 and LOAD_FILAMENT commands above to work.
 
-[pause_resume]
+    [respond]
+    default_type: command
 
-[gcode_macro M600]
-default_parameter_X: 100
-default_parameter_Y: 0
-default_parameter_Z: 10
-gcode:
- PAUSE
- G91
- G1 E-.8 F2700
- G1 Z{Z}
- G90
- G1 X{X} Y{Y} F3000
+    [pause_resume]
 
-[gcode_macro LOAD_FILAMENT]
-gcode:
- M117 Loading Filament...
- G1 E70 F400
- G1 E40 F100
- G92 E0.0
- M400
- M117 Load Complete
+    # Filament change gcode, parameters are the default park position if no XYZ is specified  - Z is relative.
+    [gcode_macro M600]
+    default_parameter_X: 100
+    default_parameter_Y: 0
+    default_parameter_Z: 10
+    gcode:
+        PAUSE
+        G91
+        G1 E-.8 F2700
+        G1 Z{Z}
+        G90
+        G1 X{X} Y{Y} F3000
 
-[gcode_macro UNLOAD_FILAMENT]
-gcode:
- M117 Unloading Filament...
- G1 E0.5 F1000
- G1 E-0.5 F1000
- G1 E1.0 F1000
- G1 E-1.0 F1000
- G1 E1.5 F1000
- G1 E-1.5 F1000
- G1 E2.0 F1000
- G1 E-100 F3000
- M400
- M117 Remove Filament Now!
- M300 S300 P1000
+    [gcode_macro LOAD_FILAMENT]
+    gcode:
+        M117 Loading Filament...
+        G1 E70 F400
+        G1 E40 F100
+        G92 E0.0
+        M400
+        M117 Load Complete
+
+    [gcode_macro UNLOAD_FILAMENT]
+    gcode:
+        M117 Unloading Filament...
+        G1 E0.5 F1000
+        G1 E-0.5 F1000
+        G1 E1.0 F1000
+        G1 E-1.0 F1000
+        G1 E1.5 F1000
+        G1 E-1.5 F1000
+        G1 E2.0 F1000
+        G1 E-100 F3000
+        M400
+        M117 Remove Filament Now!
+        M300 S300 P1000
+
+### Notes
+
+You can check the status of the filament sensor with the following command
+    QUERY_FILAMENT_SENSOR SENSOR=fsensor
+If you are using the 'filament_switch_sensor' and the status is being mixed up, the you can remove the ! on the 'switch_pin' so that it reads
+    switch_pin: PK0
+If you are using an older version of OctoPrint (<0.16) then you will also need to edit OctoPrint's config.yaml and add *unknownCommandsNeedAck: true* to the serial section. It should look something like this.
+    serial:
+      additionalPorts:
+      - /tmp/printer
+      baudrate: 250000
+      unknownCommandsNeedAck: true
+      disconnectOnErrors: false
+      logPositionOnCancel: true
+      port: /tmp/printer
