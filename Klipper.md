@@ -422,7 +422,7 @@ If you are interested in collecting data, please visit the \#mk3-klipper channel
 Filament Sensors
 ----------------
 
-The MK3 and MK3 both have a filament sensor, but they each use a different sensor. Update your printer.cfg with either of the sections below, then add/update the common sections to your printer.cfg
+The MK3 and MK3S both have a filament sensor, but they each use a different type of sensor. In order to use them with Klipper you'll need to update your printer.cfg with the appropriate section below, then add/update the common sections to your printer.cfg. Look in the example-extra.cfg for more details. You must use Klipper's RESUME command and not OctoPrint's once a runout has been detected and filment has loaded. 
 
 ### MK3 Filament Sensor (pat9125)
 
@@ -452,14 +452,14 @@ The MK3 and MK3 both have a filament sensor, but they each use a different senso
 
 ### Common configuration for both
 
-You will need to add the following sections to you printer config in order for the M600 and LOAD_FILAMENT commands above to work.
+You will need to add the following sections to you printer.cfg so that the M600 and LOAD_FILAMENT commands in the above work as intended. You can adjust the gcodes to suite your need, as long as the M600 starts with Klipper's PAUSE command.
 
     [respond]
     default_type: command
 
     [pause_resume]
 
-    # Filament change gcode, parameters are the default park position if no XYZ is specified  - Z is relative.
+    # Filament change gcode, parameters are a default park position if no XYZ is specified  - Z is relative.
     [gcode_macro M600]
     default_parameter_X: 100
     default_parameter_Y: 0
@@ -471,6 +471,7 @@ You will need to add the following sections to you printer config in order for t
         G1 Z{Z}
         G90
         G1 X{X} Y{Y} F3000
+        M117 Ready for unload
 
     [gcode_macro LOAD_FILAMENT]
     gcode:
@@ -496,18 +497,36 @@ You will need to add the following sections to you printer config in order for t
         M117 Remove Filament Now!
         M300 S300 P1000
 
+These two are not strictly needed, but they are useful to add - They add a __Change Filament__ and __Resume__ to the Filament menu on the display.
+````
+[menu __filament __change]
+type: command
+name: Change Filament
+gcode:
+    M600
+
+[menu __filament __resume]
+type: command
+name: Resume
+gcode:
+    RESUME
+````
+
 ### Notes
 
 You can check the status of the filament sensor with the following command
     QUERY_FILAMENT_SENSOR SENSOR=fsensor
-If you are using the 'filament_switch_sensor' and the status is being mixed up, the you can remove the ! on the 'switch_pin' so that it reads
+If you are using the 'filament_switch_sensor' and the status is inverted, then you just remove the ! on the 'switch_pin' so that it reads
     switch_pin: PK0
-If you are using an older version of OctoPrint (<0.16) then you will also need to edit OctoPrint's config.yaml and add *unknownCommandsNeedAck: true* to the serial section. It should look something like this.
-    serial:
-      additionalPorts:
-      - /tmp/printer
-      baudrate: 250000
-      unknownCommandsNeedAck: true
-      disconnectOnErrors: false
-      logPositionOnCancel: true
-      port: /tmp/printer
+If you are using an older version of OctoPrint (<0.16) then you will also need to edit OctoPrint's config.yaml and add `unknownCommandsNeedAck: true` to the serial section. It should look something like this.
+````
+serial:
+    additionalPorts:
+    - /tmp/printer
+    baudrate: 250000
+    unknownCommandsNeedAck: true
+    disconnectOnErrors: false
+    logPositionOnCancel: true
+    port: /tmp/printer
+````
+You need to SSH into your Pi or use SFTP. The file should be in ~/.octoprint directory.
