@@ -422,7 +422,7 @@ If you are interested in collecting data, please visit the \#mk3-klipper channel
 Filament Sensors
 ----------------
 
-The MK3 and MK3S both have a filament sensor, but they each use a different type of sensor. In order to use them with Klipper you'll need to update your printer.cfg with the appropriate section below, then add/update the common sections to your printer.cfg. Look in the example-extra.cfg for more details. You must use Klipper's RESUME command and not OctoPrint's once a runout has been detected and filment has loaded. 
+The MK3 and MK3S both have a filament sensor, but they each use a different type of sensor. In order to use them with Klipper you'll need to update your printer.cfg with the appropriate section below, then add/update the common sections to your printer.cfg. Look in the example-extra.cfg for more details. You must use Klipper's RESUME command and not OctoPrint's once a runout has been detected and filament has loaded. 
 
 ### MK3 Filament Sensor (pat9125)
 
