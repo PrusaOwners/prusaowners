@@ -47,7 +47,7 @@ In the configuration below we are going to use the following values (so to arriv
   ```
 - Add the following to `After layer change G-code`:
   ```
-  {if layer_z > 0.4}SET_PRESSURE_ADVANCE ADVANCE={START + layer_z * ((MAX - START) / HEIGHT)}{endif}
+  {if [layer_z] > 0.4}SET_PRESSURE_ADVANCE ADVANCE={START + [layer_z] * ((MAX - START) / HEIGHT)}
   ```
   Please note that `START` and `((MAX - START) / HEIGHT)` are __numbers__. So for our _PLA_ values: `{if layer_z > 0.4}SET_PRESSURE_ADVANCE ADVANCE={layer_z * 0.004}{endif}`
 - Set the following slicing settings:
