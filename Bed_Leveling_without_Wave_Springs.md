@@ -126,7 +126,7 @@ In marlin_main.cpp search for `G81` and make the following additions:
                SERIAL_PROTOCOL(MESH_HOME_Z_SEARCH);
                SERIAL_PROTOCOLLNPGM("\nMeasured points:");
                
-               float midPoint = mbl.z_values[((MESH_NUM_Y_POINTS+1)/2)-1][((MESH_NUM_Y_POINTS+1)/2)-1];
+               float midPoint = mbl.z_values[((MESH_NUM_Y_POINTS+1)/2)-1][((MESH_NUM_X_POINTS+1)/2)-1];
                for (int y = MESH_NUM_Y_POINTS-1; y >= 0; y--) {
                    for (int x = 0; x < MESH_NUM_X_POINTS; x++) {
                        SERIAL_PROTOCOLPGM("  ");
